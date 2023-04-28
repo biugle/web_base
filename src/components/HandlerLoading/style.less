@@ -1,0 +1,61 @@
+[data-component='HandlerLoading'] {
+  &.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: 99999;
+  }
+
+  .loading {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: @danger;
+    animation: rotate 2s linear infinite;
+  }
+
+  .loading::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: @success;
+    animation: rotate 3s linear infinite;
+  }
+
+  .loading::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: @primary;
+    animation: rotate 1.5s linear infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

@@ -1,0 +1,31 @@
+/* 全局通用变量 */
+
+@dark: #343a40;
+@light: #f8f9fa;
+@info: #17a2b8;
+@success: #28a745;
+@warning: #ffc107;
+@danger: #dc3545;
+@primary: #007bff;
+@secondary: #6c757d;
+
+@font-family: Arial, 'Microsoft YaHei', PingFangSC-Regular, 'Hiragino Sans GB', 'Droid Sans Fallback',
+  'WenQuanYi Micro Hei', sans-serif;
+
+@DESIGN_WIDTH: 1920;
+@DESIGN_HEIGHT: 1080;
+@CLIENT_RATIO: 16 / 9;
+
+.wRem(@prop, @px) {
+  @{prop}: unit((@px / @DESIGN_WIDTH * 100), rem);
+}
+
+.hRem(@prop, @px) {
+  @{prop}: unit((@px / @DESIGN_HEIGHT * 100), rem);
+}
+
+@rootFontSize: 16;
+
+.rem(@prop, @px) {
+  @{prop}: unit(@px / @rootFontSize, rem);
+}

@@ -1,0 +1,28 @@
+# Editor directories and files
+.DS_Store/**
+.idea/**
+.vscode/**
+
+# Others
+**/node_modules/**
+**/dist/**
+**/dist-ssr/**
+**/demo/**
+**/test/**
+
+# Files
+*.local
+**/**.min.*
+**/package-lock.json
+
+# Logs
+**/logs/**
+**/**.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Custom
+.husky/**
+build_exe/**
+build/**
