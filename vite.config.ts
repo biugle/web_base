@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 10:08:57
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-18 18:32:28
+ * @LastEditTime: 2023-05-23 16:35:13
  * @Description: vite 配置文件
  * @FilePath: \web_base\vite.config.ts
  */
@@ -53,12 +53,13 @@ export default defineConfig(({ command, mode }) => {
         '@': getPath('src'),
         '@public': getPath('public'),
         '@_custom': getPath('src/_custom'),
-        '@static': getPath('src/static'),
+        '@resource': getPath('src/resource'),
         '@router': getPath('src/router'),
         '@tools': getPath('src/tools'),
         '@services': getPath('src/services'),
-        '@components': getPath('src/components'),
-        '@views': getPath('src/views'),
+        '@common': getPath('src/common'),
+        '@modules': getPath('src/modules'),
+        '@pages': getPath('src/pages'),
         '@store': getPath('src/store'),
       },
     },

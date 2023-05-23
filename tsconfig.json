@@ -22,16 +22,16 @@
       "@/*": ["./src/*"],
       "@public/*": ["./public/*"],
       "@_custom/*": ["./src/_custom/*"],
-      "@static/*": ["./src/static/*"],
       "@router/*": ["./src/router/*"],
       "@tools/*": ["./src/tools/*"],
       "@services/*": ["./src/services/*"],
-      "@components/*": ["./src/components/*"],
-      "@views/*": ["./src/views/*"],
+      "@common/*": ["./src/common/*"],
+      "@resource/*": ["./src/resource/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@pages/*": ["./src/pages/*"],
       "@store/*": ["./src/store/*"]
     }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
-

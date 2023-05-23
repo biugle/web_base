@@ -2,7 +2,7 @@
  * @Author: Leo He
  * @Date: 2023-04-27 15:32:55
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-19 15:18:42
+ * @LastEditTime: 2023-05-23 16:33:00
  * @Description: 主文件入口
  * @FilePath: \web_base\src\main.tsx
  */
@@ -15,6 +15,7 @@ import '@_custom/css/app.less';
 import '@_custom/css/styles.less';
 import store from '@store/all';
 import routes from './router';
+import modules from './modules.config';
 import App from './App';
 
 notification.config({
@@ -34,7 +35,7 @@ message.config({
 ReactDOM.render(
   <Provider store={store}>
     <ConfigProvider input={{ autoComplete: 'off' }}>
-      <App routes={routes} />
+      <App routes={[...modules, ...routes]} />
     </ConfigProvider>
   </Provider>,
   document.getElementById('root'),

@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:07:07
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-04-27 15:57:19
+ * @LastEditTime: 2023-05-23 14:45:24
  * @Description: 路由配置文件
  * @FilePath: \web_base\src\router\index.ts
  */
@@ -22,7 +22,7 @@ const routes: RouteConfig[] = [
     path: '/home',
     // roles: ['admin'],
     exact: true,
-    component: lazy(async () => import('@views/Home')),
+    component: lazy(async () => import('@pages/Home')),
   },
   {
     path: '/login',
@@ -30,7 +30,7 @@ const routes: RouteConfig[] = [
     meta: {
       keepAlive: true,
     },
-    component: lazy(() => import('@views/Login')),
+    component: lazy(() => import('@pages/Login')),
     exact: true,
   },
   {
@@ -38,7 +38,7 @@ const routes: RouteConfig[] = [
     name: '404',
     component: lazy(async () => {
       await sleep(3500); // 模拟异步加载，展示加载动画。
-      return import('@views/404');
+      return import('@pages/404');
     }),
     exact: true,
   },

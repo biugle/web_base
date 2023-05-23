@@ -2,12 +2,12 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-04-27 15:54:49
+ * @LastEditTime: 2023-05-23 14:12:36
  * @Description: 主组件
- * @FilePath: \web_base\src\views\App\index.tsx
+ * @FilePath: \web_base\src\App\index.tsx
  */
 import React, { Component } from 'react';
-import AppLoading from '@components/AppLoading';
+import AppLoading from '@common/AppLoading';
 import './style.less';
 import AppRouter from '@router/AppRouter';
 

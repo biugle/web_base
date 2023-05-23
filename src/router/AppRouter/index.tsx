@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:16:18
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-08 16:23:50
+ * @LastEditTime: 2023-05-23 14:06:22
  * @Description: 主路由组件入口
  * @FilePath: \web_base\src\router\AppRouter\index.tsx
  */
@@ -10,7 +10,7 @@ import React from 'react';
 import { HashRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { AliveScope } from 'react-activation';
-import HandlerLoading from '@components/HandlerLoading';
+import HandlerLoading from '@common/HandlerLoading';
 import { selectors } from '@store/all';
 import RouterListener from './RouterListener';
 import RouterView from './RouterView';

@@ -8,17 +8,21 @@
  */
 import { configureStore } from '@reduxjs/toolkit';
 import MainRedux from './main_store';
+import ModulesRedux from './modules_store';
 
 export default configureStore({
   reducer: {
     ...MainRedux.reducers,
+    ...ModulesRedux.reducers,
   },
 });
 
 export const selectors = {
   ...MainRedux.selectors,
+  ...ModulesRedux.selectors,
 };
 
 export const actions = {
   ...MainRedux.actions,
+  ...ModulesRedux.actions,
 };

@@ -2,27 +2,37 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-08 16:28:34
+ * @LastEditTime: 2023-05-23 18:09:04
  * @Description: 首页
- * @FilePath: \web_base\src\views\Home\index.tsx
+ * @FilePath: \web_base\src\pages\Home\index.tsx
  */
 import React, { useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Button, QRCode, Result } from 'antd';
 import { useAliveController } from 'react-activation';
 import { actions, selectors } from '@store/all';
-import AntIcon from '@components/AntIcon';
+import AntIcon from '@common/AntIcon';
 
 const Home = (props: any) => {
   const dispatch = useDispatch();
   const { isLoading, msg } = useSelector(selectors.loading);
+  const sysInfo = useSelector(selectors.sysInfo);
   const { getCachingNodes } = useAliveController();
   const cachingNodes = getCachingNodes();
 
   // redux demo
-  console.log({ isLoading, msg }, props.isLoading, props.msg, props.startLoading, props.stopLoading, cachingNodes);
+  console.log(
+    { isLoading, msg },
+    { sysInfo },
+    props.isLoading,
+    props.msg,
+    props.startLoading,
+    props.stopLoading,
+    cachingNodes,
+  );
   useEffect(() => {
     dispatch(actions.loading.startLoading('msg'));
+    dispatch(actions.sysInfo.setSysInfo({ version: 'test_about' }));
     setTimeout(() => dispatch(actions.loading.stopLoading()), 2000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

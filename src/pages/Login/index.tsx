@@ -2,9 +2,9 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:32:21
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-04 11:01:00
+ * @LastEditTime: 2023-05-23 14:14:00
  * @Description: 登录页面
- * @FilePath: \web_base\src\views\Login\index.tsx
+ * @FilePath: \web_base\src\pages\Login\index.tsx
  */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
@@ -12,7 +12,7 @@ import './style.less';
 import { useAliveController } from 'react-activation';
 import useInterval from '@_custom/hooks/useInterval';
 import useRouterChange from '@_custom/hooks/useRouterChange';
-import logo from '@static/imgs/logo-white.png';
+import logo from '@resource/imgs/logo-white.png';
 
 const Login = () => {
   const HAS_REGISTER = true;
