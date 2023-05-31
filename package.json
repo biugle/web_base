@@ -2,6 +2,7 @@
   "name": "web_base",
   "version": "1.0.0",
   "description": "前端模板",
+  "main": "dist/electron/main.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/biugle/web_base.git"
@@ -25,9 +26,14 @@
     "prepare": "husky install && npm run add-husky-scripts && npm run replace-husky-scripts",
     "add-husky-scripts": "husky add .husky/pre-commit npm_s_run_s_update:hooks && husky add .husky/pre-commit npm_s_run_s_lint && husky add .husky/pre-commit npm_s_run_s_time",
     "replace-husky-scripts": "xcmd replace-file-content .husky/pre-commit _s_ [space]",
+    "electron-icon": "electron-icon-builder --input=./public/icon.png --output=./public/electron-icon-builder --flatten",
     "dev": "vite",
     "build": "vite build",
     "preview": "npm run build && vite preview --host",
+    "before:exe": "tsc -p tsconfig.electron.json",
+    "dev:exe": "chcp 65001 | vite -m electron",
+    "build:exe": "npm run build && npm run before:exe && electron-builder --config=electron-builder-win.json",
+    "preview:exe": "npm run build && npm run before:exe && chcp 65001 | electron . prod",
     "eslint": "eslint ./ --fix --ext .ts,.tsx,.js,.jsx,.vue",
     "prettier": "prettier --write ./**/*.{ts,tsx,js,jsx,vue,html,css,scss,less}",
     "lint": "npm run prettier && npm run eslint",
@@ -40,6 +46,7 @@
     "@ant-design/pro-components": "^2.4.9",
     "@reduxjs/toolkit": "^1.9.5",
     "antd": "^5.4.6",
+    "electron-updater": "^5.3.0",
     "js-xcall": "^1.3.0",
     "js-xhttp": "^1.5.1",
     "js-xxx": "^1.6.6",
@@ -58,6 +65,9 @@
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",
+    "electron": "^24.4.0",
+    "electron-builder": "^23.6.0",
+    "electron-icon-builder": "^2.0.1",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
@@ -74,6 +84,7 @@
     "terser": "^5.17.1",
     "typescript": "^5.0.2",
     "vite": "^4.3.0",
+    "vite-plugin-electron": "^0.11.2",
     "vite-plugin-eslint": "^1.8.1"
   },
   "time": "2901341823052023"

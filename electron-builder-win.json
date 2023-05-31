@@ -1,0 +1,31 @@
+{
+  "appId": "cn.biugle.base",
+  "copyright": "Copyright © 2022 ${author}",
+  "asar": true,
+  "files": [
+    "dist/**/*"
+  ],
+  "productName": "BiugleBase",
+  "directories": {
+    "output": "build_exe/${version}"
+  },
+  "win": {
+    "target": [
+      "nsis"
+    ],
+    "icon": "dist/logos/icon.ico"
+  },
+  "nsis": {
+    "language": 2052,
+    "artifactName": "${productName}-Windows-Setup-${version}.${ext}",
+    "allowElevation": true,
+    "installerHeader": "dist/logos/icon.ico",
+    "installerHeaderIcon": "dist/logos/icon.ico",
+    "uninstallerIcon": "dist/logos/icon.ico",
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "deleteAppDataOnUninstall": true,
+    "allowToChangeInstallationDirectory": true,
+    "oneClick": false
+  }
+}

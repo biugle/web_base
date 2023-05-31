@@ -11,6 +11,7 @@ import * as path from 'path';
 import { defineConfig } from 'vite';
 import reactPlugin from '@vitejs/plugin-react';
 import eslint from 'vite-plugin-eslint';
+import electronPlugin from 'vite-plugin-electron';
 
 // 若需设置 process.env 的值可以通过 set 关键字传入 vite 中
 
@@ -27,6 +28,29 @@ export default defineConfig(({ command, mode }) => {
     }),
     reactPlugin(),
   ];
+
+  if (mode === 'electron') {
+    pluginsConfig.push(
+      electronPlugin([
+        {
+          entry: [
+            'electron/main.ts',
+            'electron/preload.ts',
+            'electron/updater.ts',
+            'electron/events.ts',
+            'electron/utils.ts',
+          ],
+          vite: {
+            build: {
+              chunkSizeWarningLimit: 2048,
+              outDir: 'dist/electron',
+              minify: 'terser',
+            },
+          },
+        },
+      ]),
+    );
+  }
 
   return {
     root: getPath('./'),

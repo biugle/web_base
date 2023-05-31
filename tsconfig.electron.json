@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+    "module": "commonjs",
+    "baseUrl": "./",
+    "sourceMap": false
+  },
+  "include": ["electron/**/*.ts"],
+  "exclude": ["node_modules", "**/*.d.ts", "_template_"]
+}
+
