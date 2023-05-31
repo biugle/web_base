@@ -69,7 +69,7 @@ export default defineConfig(({ command, mode }) => {
     server: {
       cors: true,
       // 在开发服务器启动时自动在浏览器中打开应用程序
-      open: true,
+      open: mode === 'development',
       hmr: true,
       host: true,
       port: 1998,
