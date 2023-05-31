@@ -2,9 +2,9 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:24:56
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-18 17:58:23
+ * @LastEditTime: 2023-05-25 18:04:30
  * @Description: class 模板
- * @FilePath: \web_base\_template\app-class.tsx
+ * @FilePath: \web_base\_template_\app-class.tsx
  */
 import React, { Component } from 'react';
 

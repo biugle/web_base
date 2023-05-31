@@ -2,9 +2,9 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:04:26
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-18 18:21:30
+ * @LastEditTime: 2023-05-25 18:04:38
  * @Description: redux 模板
- * @FilePath: \web_base\_template\app-state.ts
+ * @FilePath: \web_base\_template_\app-state.ts
  */
 import { createSlice } from '@reduxjs/toolkit';
 

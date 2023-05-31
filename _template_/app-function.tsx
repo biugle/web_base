@@ -2,9 +2,9 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:16:18
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-18 17:52:19
+ * @LastEditTime: 2023-05-25 18:04:18
  * @Description: function 模板
- * @FilePath: \web_base\_template\app-function.tsx
+ * @FilePath: \web_base\_template_\app-function.tsx
  */
 import React, { useEffect, useState } from 'react';
 
