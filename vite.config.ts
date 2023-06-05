@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 10:08:57
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-23 16:35:13
+ * @LastEditTime: 2023-06-05 17:06:38
  * @Description: vite 配置文件
  * @FilePath: \web_base\vite.config.ts
  */
@@ -95,7 +95,7 @@ export default defineConfig(({ command, mode }) => {
       cors: true,
       // 在开发服务器启动时自动在浏览器中打开应用程序
       open: mode === 'development',
-      hmr: true,
+      hmr: true, // 与 server-worker 互斥
       host: true,
       port: 1998,
       proxy: {
