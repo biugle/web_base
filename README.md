@@ -4,7 +4,10 @@
 
 * **main** `基础版本` 分支
 * **modules** `模块化版本` 分支
-* **client** `客户端版本` 分支～(***client-modules*** 支持 ***ServiceWorker***)
+* **client** `客户端版本` 分支
+  * (***client-modules*** 支持 ***ServiceWorker 资源缓存***)
+  * (***client-modules*** 支持 ***Electron Http 服务启动***)
+  * (***client-modules*** 支持 ***Electron SSL 证书扩展***)
 
 ## Technology Stack
 
@@ -14,7 +17,7 @@
 * Scss/Less
 * Ant Design 5.x
 * Vite 4.x
-* Electron
+* Electron(已支持自动更新、打包、SSL)
 * EsLint
 * Prettier
 * Husky
