@@ -17,8 +17,8 @@
 * Redux+Toolkit
 * TypeScript
 * Scss/Less
-* Ant Design 5.x
-* Vite 4.x
+* Ant Design 4.x
+* Vite 3.x
 * Electron(已支持自动更新、打包、SSL)
 * EsLint
 * Prettier
@@ -26,6 +26,8 @@
 * ServiceWorker
 
 > DevEnvTips: (node >= 14.20.0)、(npm >= 8.0.0)、(git >= 2.30.0)
+
+* 本分支由于需兼容低版本**安卓设备**，所以降低了 `Ant Design` 与 `Vite` 的版本。
 
 ## Use
 

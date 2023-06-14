@@ -2,7 +2,7 @@
  * @Author: Leo He
  * @Date: 2023-04-27 15:32:55
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-19 15:18:42
+ * @LastEditTime: 2023-06-14 15:28:35
  * @Description: 主文件入口
  * @FilePath: \web_base\src\main.tsx
  */
@@ -11,6 +11,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConfigProvider, message, notification } from 'antd';
 import '@_custom/css/reset.css';
+import 'antd/dist/antd.css';
 import '@_custom/css/app.less';
 import '@_custom/css/styles.less';
 import store from '@store/all';

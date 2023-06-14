@@ -17,3 +17,4 @@
 .husky/**
 build_exe/**
 build/**
+cordova/**
