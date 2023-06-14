@@ -1,0 +1,28 @@
+{
+  "android": {
+    "debug": {
+      "keystore": "./web_base.jks",
+      "storePassword": "123456",
+      "alias": "web_base_key",
+      "password": "123456",
+      "keystoreType": "jks",
+      "packageType": "apk"
+    },
+    "release": {
+      "keystore": "./web_base.jks",
+      "storePassword": "123456",
+      "alias": "web_base_key",
+      "password": "123456",
+      "keystoreType": "jks",
+      "packageType": "apk"
+    },
+    "bundle": {
+      "keystore": "./web_base.jks",
+      "storePassword": "123456",
+      "alias": "web_base_key",
+      "password": "123456",
+      "keystoreType": "jks",
+      "packageType": "bundle"
+    }
+  }
+}

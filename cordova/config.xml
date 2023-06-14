@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- https://c.runoob.com/front-end/710/ xml 格式化 -->
+<widget id="com.web.base" version="1.0.0"
+  xmlns="http://www.w3.org/ns/widgets"
+  xmlns:cdv="http://cordova.apache.org/ns/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>WebBase</name>
+  <description>
+    前端模板
+  </description>
+  <author email="admin@biugle.cn" href="https://a.biugle.cn">
+    LeoHe
+  </author>
+  <platform name="android">
+    <allow-intent href="market:*" />
+    <icon src="www/dist/app_config/icon.png" />
+    <splash src="www/dist/app_config/splash.png" />
+    <!-- 广告页相关 -->
+    <!-- <preference name="UIWebViewBounce" value="false" /> -->
+    <!-- <preference name="DisallowOverscroll" value="true" /> -->
+    <!-- 强制横屏 -->
+    <!-- <preference name="Orientation" value="landscape" /> -->
+    <!-- 全屏-如果需要显示状态栏请改为 false -->
+    <preference name="Fullscreen" value="false" />
+    <!-- 自动隐藏启动页面 -->
+    <preference name="AutoHideSplashScreen" value="true" />
+    <!-- 启动页面淡入 -->
+    <!-- <preference name="FadeSplashScreen" value="true" /> -->
+    <!-- 启动页面后延迟时间-开启会在启动页后闪过黑屏-最好像 start.js 中一样使用代码主动关闭或者自动关闭 -->
+    <!-- <preference name="SplashScreenDelay" value="2000" /> -->
+    <!-- 启动页面淡出时间-开启会在启动页后闪过黑屏 -->
+    <!-- <preference name="FadeSplashScreenDuration" value="500" /> -->
+    <!-- 启动页面是否显示进度圈 -->
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <!-- <preference name="SplashScreenSpinnerColor" value="white" /> -->
+    <!-- 启动页面是否保持比例 -->
+    <preference name="SplashMaintainAspectRatio" value="false" />
+    <!-- 启动页面只在打开 app 时显示，后台进入时不显示。 -->
+    <preference name="SplashShowOnlyFirstTime" value="true" />
+    <preference name="SplashScreenBackgroundColor" value="white" />
+    <custom-preference name="android-manifest/application/@android:usesCleartextTraffic"
+      value="true" />
+    <!-- https://blog.csdn.net/a451319296/article/details/109540635 权限大全 -->
+    <config-file parent="/*" target="AndroidManifest.xml">
+      <!-- 启动时自动启动 -->
+      <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+      <!-- 后台服务 -->
+      <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+      <!-- 弹窗 -->
+      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+      <!-- 全屏 -->
+      <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+      <!-- 网络 -->
+      <uses-permission android:name="android.permission.INTERNET" />
+      <!-- 网络状态 -->
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <!-- 无线网络状态 -->
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+      <!-- 读取外部存储 -->
+      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+      <!-- 写入外部存储 -->
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+      <!-- 管理外部存储 -->
+      <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+      <!-- 访问多媒体文件 -->
+      <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+      <!-- 设置屏幕方向 -->
+      <uses-permission android:name="android.permission.SET_ORIENTATION" />
+      <!-- 唤醒锁定 -->
+      <uses-permission android:name="android.permission.WAKE_LOCK" />
+      <!-- 安装apk -->
+      <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+      <uses-permission android:name="android.permission.ACTION_INSTALL_PACKAGE" />
+      <uses-permission android:name="android.permission.MY_PACKAGE_REPLACED" />
+    </config-file>
+  </platform>
+  <!-- <content src="dist/index.html" /> -->
+  <content src="start.html" />
+  <!-- cordova 10 使用的是一个特殊的预览系统(https://github.com/apache/cordova-android/issues/1354) -->
+  <!-- 此配置使用 cordova 10 以下的文件系统。 -->
+  <!-- 开启此选项低版本安卓跳转有问题 -->
+  <!-- <preference name="AndroidInsecureFileModeEnabled" value="true" /> -->
+  <!-- 使用 http 域名，低版本安卓可以进行 http 请求。（请求工具的 withCredentials 也记得关闭） -->
+  <preference name="scheme" value="http" />
+  <!-- http://web_base/* (default:http://localhost/*) -->
+  <preference name="hostname" value="web_base" />
+  <access origin="*" />
+  <allow-intent href="http://*/*" />
+  <allow-intent href="https://*/*" />
+  <allow-intent href="tel:*" />
+  <allow-intent href="sms:*" />
+  <allow-intent href="mailto:*" />
+  <allow-intent href="geo:*" />
+  <allow-intent href="ws://*/*" />
+  <allow-intent href="wss://*/*" />
+  <allow-navigation href="*" />
+  <!-- 状态栏覆盖或不覆盖 WebView (true 为 Web 全屏) -->
+  <preference name="StatusBarOverlaysWebView" value="false" />
+  <!-- 状态栏颜色 StatusBarOverlaysWebView=true(#AARRGGBB) else (#RRGGBB)  -->
+  <preference name="StatusBarBackgroundColor" value="#33000000" />
+  <!-- 设置状态栏样式 -->
+  <preference name="StatusBarStyle" value="lightcontent" />
+</widget>

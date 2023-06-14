@@ -2,13 +2,13 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-08 16:28:34
+ * @LastEditTime: 2023-06-14 17:25:31
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
 import React, { useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { Button, QRCode, Result } from 'antd';
+import { Button, Result } from 'antd';
 import { useAliveController } from 'react-activation';
 import { actions, selectors } from '@store/all';
 import AntIcon from '@components/AntIcon';
@@ -30,7 +30,6 @@ const Home = (props: any) => {
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <AntIcon icon="BugTwoTone" spin={true} style={{ margin: 'auto', display: 'block', width: '30px' }} />
-      {/* <QRCode value={'http://a.biugle.cn'} /> */}
       <Result
         status="403"
         title="403"

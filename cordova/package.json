@@ -1,0 +1,37 @@
+{
+  "name": "com.web.base",
+  "displayName": "HelloCordova",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^10.1.2",
+    "cordova-custom-config": "^5.1.1",
+    "cordova-plugin-apkupdater": "^4.0.0",
+    "cordova-plugin-autostart": "^2.3.0",
+    "cordova-plugin-splashscreen": "^6.0.1",
+    "cordova-plugin-statusbar": "^3.0.0",
+    "cordova-plugin-x-toast": "^2.7.3"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-autostart": {},
+      "cordova-plugin-apkupdater": {},
+      "cordova-custom-config": {},
+      "cordova-plugin-x-toast": {},
+      "cordova-plugin-statusbar": {}
+    }
+  }
+}
