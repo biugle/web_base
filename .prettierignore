@@ -13,3 +13,4 @@
 .husky/**
 build_exe/**
 build/**
+public/lib/**

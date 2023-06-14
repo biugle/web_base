@@ -18,3 +18,4 @@
 build_exe/**
 build/**
 cordova/**
+public/lib/**
