@@ -8,6 +8,8 @@
   * (***client-modules*** 支持 ***ServiceWorker 资源缓存***)
   * (***client-modules*** 支持 ***Electron Http 服务启动***)
   * (***client-modules*** 支持 ***Electron SSL 证书扩展***)
+  * (***client-main*** 基础客户端版本)
+  * (***simple-cross-platform*** 跨平台简单模板 - **网页**&`Web`/**Client**&`Electron`/**App**&`Cordova`)
 
 ## Technology Stack
 
