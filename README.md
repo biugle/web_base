@@ -33,7 +33,10 @@
 git clone https://github.com/biugle/web_base.git
 
 npm i -g js-xcmd
-xcmd create-web-base [dir]
+xcmd create-web-base [dir] [branch]
+# client-main ===> c-main
+# client-modules ===> c-modules
+# simple-cross-platform ===> cross
 ```
 
 ## Start
