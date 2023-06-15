@@ -27,7 +27,7 @@
 
 > DevEnvTips: (node >= 14.20.0)、(npm >= 8.0.0)、(git >= 2.30.0)
 
-* 本分支由于需兼容低版本**安卓设备**，所以降低了 `Ant Design` 与 `Vite` 的版本。
+* 本分支由于需兼容低版本**安卓设备**，所以降低了 `Ant Design` 与 `Vite` 的版本，增加了 `vConsole` 支持。
 
 ## Use
 
