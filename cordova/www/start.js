@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-04-22 14:23:20
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-06-14 17:03:39
+ * @LastEditTime: 2023-06-16 14:50:21
  * @Description: cordova 启动
  * @FilePath: \web_base\cordova\www\start.js
  */
@@ -50,7 +50,7 @@ function onDeviceReady() {
   // Auto start the app
   cordova.plugins.autoStart.enable();
   // Auto start the app service
-  cordova.plugins.autoStart.enableService('WebBase');
+  cordova.plugins.autoStart.enableService('BiugleBase');
 
   // Hide the splash screen
   navigator.splashscreen.hide();

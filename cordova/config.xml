@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!-- https://c.runoob.com/front-end/710/ xml 格式化 -->
-<widget id="com.web.base" version="1.0.0"
+<widget id="cn.biugle.base" version="1.0.0"
   xmlns="http://www.w3.org/ns/widgets"
   xmlns:cdv="http://cordova.apache.org/ns/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android">
-  <name>WebBase</name>
+  <name>BiugleBase</name>
   <description>
     前端模板
   </description>
