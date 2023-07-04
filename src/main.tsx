@@ -2,7 +2,7 @@
  * @Author: Leo He
  * @Date: 2023-04-27 15:32:55
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-19 15:18:42
+ * @LastEditTime: 2023-07-04 16:12:36
  * @Description: 主文件入口
  * @FilePath: \web_base\src\main.tsx
  */
@@ -14,8 +14,13 @@ import '@_custom/css/reset.css';
 import '@_custom/css/app.less';
 import '@_custom/css/styles.less';
 import store from '@store/all';
+import zhCN from 'antd/locale/zh_CN';
+import dayjs from 'dayjs';
 import routes from './router';
+import 'dayjs/locale/zh-cn';
 import App from './App';
+
+dayjs.locale('zh-cn');
 
 notification.config({
   placement: 'topRight',
@@ -33,7 +38,7 @@ message.config({
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConfigProvider input={{ autoComplete: 'off' }}>
+    <ConfigProvider locale={zhCN} input={{ autoComplete: 'off' }}>
       <App routes={routes} />
     </ConfigProvider>
   </Provider>,
