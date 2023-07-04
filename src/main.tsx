@@ -14,9 +14,14 @@ import '@_custom/css/reset.css';
 import '@_custom/css/app.less';
 import '@_custom/css/styles.less';
 import store from '@store/all';
+import zhCN from 'antd/locale/zh_CN';
+import dayjs from 'dayjs';
 import routes from './router';
 import modules from './modules.config';
+import 'dayjs/locale/zh-cn';
 import App from './App';
+
+dayjs.locale('zh-cn');
 
 notification.config({
   placement: 'topRight',
@@ -34,7 +39,7 @@ message.config({
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConfigProvider input={{ autoComplete: 'off' }}>
+    <ConfigProvider locale={zhCN} input={{ autoComplete: 'off' }}>
       <App routes={[...modules, ...routes]} />
     </ConfigProvider>
   </Provider>,
