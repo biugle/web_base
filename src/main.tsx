@@ -2,7 +2,7 @@
  * @Author: Leo He
  * @Date: 2023-04-27 15:32:55
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-06-14 15:28:35
+ * @LastEditTime: 2023-07-04 15:59:57
  * @Description: 主文件入口
  * @FilePath: \web_base\src\main.tsx
  */
@@ -14,9 +14,14 @@ import '@_custom/css/reset.css';
 import 'antd/dist/antd.css';
 import '@_custom/css/app.less';
 import '@_custom/css/styles.less';
+import moment from 'moment';
 import store from '@store/all';
+import zhCN from 'antd/es/locale/zh_CN';
 import routes from './router';
+import 'moment/dist/locale/zh-cn';
 import App from './App';
+
+moment.locale('zh-cn');
 
 notification.config({
   placement: 'topRight',
@@ -34,7 +39,7 @@ message.config({
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConfigProvider input={{ autoComplete: 'off' }}>
+    <ConfigProvider locale={zhCN} input={{ autoComplete: 'off' }}>
       <App routes={routes} />
     </ConfigProvider>
   </Provider>,
