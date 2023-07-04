@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 14:18:11
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-04-27 14:21:55
+ * @LastEditTime: 2023-07-04 16:13:10
  * @Description: eslint 配置文件
  * @FilePath: \web_base\.eslintrc.js
  */
@@ -102,6 +102,7 @@ module.exports = {
           'cordova',
           'ionics',
           'lodash',
+          'dayjs',
           'splashscreen',
           'uglify',
           'jsonp',
