@@ -22,6 +22,7 @@
   "homepage": "https://github.com/biugle/web_base/blob/main/README.md",
   "scripts": {
     "init": "npm i --ignore-scripts",
+    "git": "git init",
     "prepare": "husky install && npm run add-husky-scripts && npm run replace-husky-scripts",
     "add-husky-scripts": "husky add .husky/pre-commit npm_s_run_s_update:hooks && husky add .husky/pre-commit npm_s_run_s_lint && husky add .husky/pre-commit npm_s_run_s_time",
     "replace-husky-scripts": "xcmd replace-file-content .husky/pre-commit _s_ [space]",
