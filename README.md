@@ -45,6 +45,8 @@ xcmd create-web-base [dir] [branch]
 
 * `npm install` or `npm run init`
 
+> 若 `husky hooks` 安装失败，请检查是否已进行 `git init` 。
+
 > 注意：若代码标红提示，请检查是否因为 `npm` 版本过低，导致安装了 `react18` 的声明文件。
 > 可以使用 `npm install --no-optional` 来避免安装 `react18` 的声明文件。
 > 或者直接升级 `npm` 版本，`(*∩_∩*)` 嘻嘻。
