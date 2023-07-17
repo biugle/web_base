@@ -24,7 +24,7 @@
   "scripts": {
     "init": "npm i --ignore-scripts",
     "git": "git init",
-    "prepare": "husky install && npm run add-husky-scripts && npm run replace-husky-scripts",
+    "prepare": "husky install && npm run add-husky-scripts && npm run replace-husky-scripts && npm run lint",
     "add-husky-scripts": "husky add .husky/pre-commit npm_s_run_s_update:hooks && husky add .husky/pre-commit npm_s_run_s_lint && husky add .husky/pre-commit npm_s_run_s_time",
     "replace-husky-scripts": "xcmd replace-file-content .husky/pre-commit _s_ [space]",
     "electron-icon": "electron-icon-builder --input=./public/icon.png --output=./public/electron-icon-builder --flatten",
