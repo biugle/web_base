@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:07:07
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-23 14:45:24
+ * @LastEditTime: 2023-07-20 15:39:43
  * @Description: 路由配置文件
  * @FilePath: \web_base\src\router\index.ts
  */
@@ -30,7 +30,8 @@ const routes: RouteConfig[] = [
     meta: {
       keepAlive: true,
     },
-    component: lazy(() => import('@pages/Login')),
+    // component: lazy(() => import('@pages/Login')),
+    component: lazy(() => import('@pages/LoginRwd')),
     exact: true,
   },
   {
