@@ -128,11 +128,39 @@
     font-size: 12px;
   }
 
-  a {
-    color: #333;
-    font-size: 14px;
-    text-decoration: none;
-    margin: 15px 0;
+  div.toolbox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    user-select: none;
+    padding: 0;
+
+    a {
+      color: #333;
+      font-size: 14px;
+      text-decoration: none;
+      margin-right: -8px;
+    }
+
+    .save-account-btn {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      input {
+        cursor: pointer;
+        width: 14px;
+        height: 14px;
+      }
+
+      span {
+        margin-top: -1px;
+        margin-left: 3px;
+        font-size: 14px;
+      }
+    }
   }
 
   .container {
@@ -213,11 +241,11 @@
     transition: 0.5s;
   }
 
-  .focus + span::before {
+  .focus+span::before {
     top: -5px;
   }
 
-  .focus + span::after {
+  .focus+span::after {
     width: 100%;
   }
 
@@ -275,7 +303,7 @@
 
   .sign-in-container form a {
     position: relative;
-    left: 100px;
+    // left: 100px;
   }
 
   .sign-up-container {
@@ -324,6 +352,10 @@
     text-align: center;
     transform: translateY(0);
     transition: transform 0.6s ease-in-out;
+
+    h1 {
+      color: #f8f9fa;
+    }
   }
 
   .overlay-right {
