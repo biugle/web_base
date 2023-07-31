@@ -2,14 +2,18 @@
  * @Author: HxB
  * @Date: 2023-07-19 15:32:21
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-07-20 15:35:25
+ * @LastEditTime: 2023-07-31 15:19:27
  * @Description: 登录页面响应式（阿彪费劲心思重写出来的）
  * @FilePath: \web_base\src\views\LoginRwd\index.tsx
  */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.less';
+import { useHistory } from 'react-router-dom';
 
 const LoginRwd = () => {
+  const history = useHistory();
+  const [isSaveAccount, setIsSaveAccount] = useState<boolean>(window.localStorage.getItem('isSaveAccount') === 'true');
+
   // 滑动切换动画
   useEffect(() => {
     const loginBtn: any = document.getElementById('login-btn');
@@ -37,11 +41,31 @@ const LoginRwd = () => {
           </h2>
           <div className="form-holder">
             <div className="input-area">
-              <input autoComplete="off" type="text" className="input" placeholder="账号" />
+              <input autoComplete="off" type="text" className="input" placeholder="账号/邮箱" />
             </div>
             <div className="input-area">
               <input autoComplete="off" type="password" className="input" placeholder="密码" />
             </div>
+          </div>
+          <div className="toolbox">
+            <label className="save-account-btn">
+              <input
+                type="checkbox"
+                checked={isSaveAccount}
+                onChange={(e: any) => {
+                  setIsSaveAccount(e.target.checked);
+                  window.localStorage.setItem('isSaveAccount', e.target.checked);
+                }}
+              />
+              <span>记住账号</span>
+            </label>
+            <span
+              onClick={() => {
+                history.push('/404');
+              }}
+            >
+              忘记密码？
+            </span>
           </div>
           <div className="submit-btn">登录</div>
         </div>
@@ -52,16 +76,26 @@ const LoginRwd = () => {
             </h2>
             <div className="form-holder">
               <div className="input-area">
-                <input autoComplete="off" type="email" className="input" placeholder="邮箱" />
+                <input autoComplete="off" type="text" className="input" placeholder="账号" />
               </div>
               <div className="input-area">
-                <input autoComplete="off" type="text" className="input" placeholder="账号" />
+                <input autoComplete="off" type="email" className="input" placeholder="邮箱" />
               </div>
               <div className="input-area">
                 <input autoComplete="off" type="password" className="input" placeholder="密码" />
               </div>
+              <div className="input-area">
+                <input autoComplete="off" type="password" className="input" placeholder="确认密码" />
+              </div>
             </div>
-            <div className="submit-btn">注册</div>
+            <div
+              className="submit-btn"
+              onClick={() => {
+                alert('注册成功');
+              }}
+            >
+              注册
+            </div>
           </div>
           <div className="bg-cubes">
             <div className="cube"></div>
