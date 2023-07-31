@@ -182,6 +182,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 5px;
     user-select: none;
     padding: 0;
@@ -191,10 +192,11 @@
       font-size: 0.88rem;
       text-decoration: none;
       cursor: pointer;
-      margin-right: -6px;
+      margin-right: -8px;
     }
 
     .save-account-btn {
+      margin-left: -5px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -417,7 +419,6 @@
     cursor: text;
 
     &:focus-within {
-
       &::before,
       &::after {
         content: '';
@@ -438,7 +439,6 @@
     }
 
     @keyframes clip-path {
-
       0%,
       100% {
         clip-path: inset(0 0 98% 0);
