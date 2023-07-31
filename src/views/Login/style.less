@@ -132,8 +132,9 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     user-select: none;
     padding: 0;
 
@@ -145,6 +146,7 @@
     }
 
     .save-account-btn {
+      margin-left: -5px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -241,11 +243,11 @@
     transition: 0.5s;
   }
 
-  .focus+span::before {
+  .focus + span::before {
     top: -5px;
   }
 
-  .focus+span::after {
+  .focus + span::after {
     width: 100%;
   }
 
