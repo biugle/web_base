@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-07-19 15:32:21
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-07-31 15:19:27
+ * @LastEditTime: 2023-08-02 10:27:56
  * @Description: 登录页面响应式（阿彪费劲心思重写出来的）
  * @FilePath: \web_base\src\views\LoginRwd\index.tsx
  */
@@ -14,20 +14,28 @@ const LoginRwd = () => {
   const history = useHistory();
   const [isSaveAccount, setIsSaveAccount] = useState<boolean>(window.localStorage.getItem('isSaveAccount') === 'true');
 
+  const showBox = (type = 'login') => {
+    const loginBox = document.querySelector('.login-box');
+    const signUpBox = document.querySelector('.sign-up-box');
+    if (type === 'login') {
+      loginBox.classList.remove('slide-hidden');
+      signUpBox.classList.add('slide-hidden');
+    } else {
+      signUpBox.classList.remove('slide-hidden');
+      loginBox.classList.add('slide-hidden');
+    }
+  };
+
   // 滑动切换动画
   useEffect(() => {
     const loginBtn: any = document.getElementById('login-btn');
     const signUpBtn: any = document.getElementById('sign-up-btn');
-    const loginBox = document.querySelector('.login-box');
-    const signUpBox = document.querySelector('.sign-up-box');
     loginBtn?.addEventListener('click', () => {
-      loginBox.classList.remove('slide-hidden');
-      signUpBox.classList.add('slide-hidden');
+      showBox('login');
     });
 
     signUpBtn?.addEventListener('click', () => {
-      signUpBox.classList.remove('slide-hidden');
-      loginBox.classList.add('slide-hidden');
+      showBox('rg');
     });
   }, []);
 
@@ -67,7 +75,18 @@ const LoginRwd = () => {
               忘记密码？
             </span>
           </div>
-          <div className="submit-btn">登录</div>
+          <div
+            className="submit-btn"
+            onClick={() => {
+              history.push('/');
+              // do login action
+              if (isSaveAccount) {
+                window.localStorage.setItem('local_account', 'local_account');
+              }
+            }}
+          >
+            登录
+          </div>
         </div>
         <div className="sign-up-box slide-hidden">
           <div className="center">
@@ -92,6 +111,7 @@ const LoginRwd = () => {
               className="submit-btn"
               onClick={() => {
                 alert('注册成功');
+                showBox('login');
               }}
             >
               注册

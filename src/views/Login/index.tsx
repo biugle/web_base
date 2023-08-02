@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:32:21
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-07-31 15:16:58
+ * @LastEditTime: 2023-08-02 10:28:16
  * @Description: 登录页面
  * @FilePath: \web_base\src\views\Login\index.tsx
  */
@@ -109,7 +109,7 @@ const Login = () => {
             <button
               onClick={(e: any) => {
                 stopEvent(e);
-                history.push('/home');
+                history.push('/');
               }}
             >
               登录
