@@ -27,7 +27,7 @@ class AuthRoute extends Component<any, any> {
 
     // 用户已登录，还想去登录页面。禁止
     if (userRoles && path === '/login') {
-      return <Redirect to="/home" />;
+      return <Redirect to="/" />;
     }
 
     const $AuthRouteDom =

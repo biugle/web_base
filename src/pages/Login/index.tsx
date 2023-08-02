@@ -109,7 +109,7 @@ const Login = () => {
             <button
               onClick={(e: any) => {
                 stopEvent(e);
-                history.push('/home');
+                history.push('/');
               }}
             >
               登录
