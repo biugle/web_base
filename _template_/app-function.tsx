@@ -7,6 +7,7 @@
  * @FilePath: \web_base\_template_\app-function.tsx
  */
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 type AppTempProps = {
   title: string;
@@ -14,6 +15,17 @@ type AppTempProps = {
 
 const AppTemp: React.FC<AppTempProps> = (props) => {
   const [data, setData] = useState<any>({});
+  const history = useHistory();
+
+  const goRouter = (path: string) => {
+    history.push({
+      pathname: path,
+      state: { name: 'state' },
+      // @ts-ignore
+      query: { name: 'query' },
+      search: 'name=search',
+    });
+  };
 
   useEffect(() => {
     // do something
