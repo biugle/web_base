@@ -6,7 +6,7 @@
  * @Description: 登录页面响应式（阿彪费劲心思重写出来的）
  * @FilePath: \web_base\src\views\LoginRwd\index.tsx
  */
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './style.less';
 import { useHistory } from 'react-router-dom';
 
@@ -26,6 +26,28 @@ const LoginRwd = () => {
     }
   };
 
+  const loginClick = useCallback(() => {
+    history.push('/');
+    // do login action
+    if (isSaveAccount) {
+      window.localStorage.setItem('local_account', 'local_account');
+    }
+  }, [isSaveAccount]);
+
+  const signUpClick = () => {
+    alert('注册成功');
+    showBox('login');
+  };
+
+  const handleKeyPress = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === 'Enter') {
+        loginClick();
+      }
+    },
+    [loginClick],
+  );
+
   // 滑动切换动画
   useEffect(() => {
     const loginBtn: any = document.getElementById('login-btn');
@@ -37,7 +59,12 @@ const LoginRwd = () => {
     signUpBtn?.addEventListener('click', () => {
       showBox('rg');
     });
-  }, []);
+
+    document.addEventListener('keypress', handleKeyPress);
+    return () => {
+      document.removeEventListener('keypress', handleKeyPress);
+    };
+  }, [handleKeyPress]);
 
   return (
     <div data-component="LoginRwd" data-theme="dark">
@@ -75,16 +102,7 @@ const LoginRwd = () => {
               忘记密码？
             </span>
           </div>
-          <div
-            className="submit-btn"
-            onClick={() => {
-              history.push('/');
-              // do login action
-              if (isSaveAccount) {
-                window.localStorage.setItem('local_account', 'local_account');
-              }
-            }}
-          >
+          <div className="submit-btn" onClick={loginClick}>
             登录
           </div>
         </div>
@@ -107,13 +125,7 @@ const LoginRwd = () => {
                 <input autoComplete="off" type="password" className="input" placeholder="确认密码" />
               </div>
             </div>
-            <div
-              className="submit-btn"
-              onClick={() => {
-                alert('注册成功');
-                showBox('login');
-              }}
-            >
+            <div className="submit-btn" onClick={signUpClick}>
               注册
             </div>
           </div>
