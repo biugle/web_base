@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:07:07
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-07-20 15:39:43
+ * @LastEditTime: 2023-08-18 15:17:08
  * @Description: 路由配置文件
  * @FilePath: \web_base\src\router\index.ts
  */
@@ -27,12 +27,14 @@ const routes: RouteConfig[] = [
   {
     path: '/login',
     name: 'Login',
+    // component: lazy(() => import('@views/Login')),
+    component: lazy(() => import('@views/LoginRwd')),
+    exact: true,
     meta: {
+      title: '登录',
+      icon: 'HeartTwoTone',
       keepAlive: true,
     },
-    // component: lazy(() => import('@pages/Login')),
-    component: lazy(() => import('@pages/LoginRwd')),
-    exact: true,
   },
   {
     path: '*', // 不设置 null，兼容一些第三方组件（例如缓存组件）。
