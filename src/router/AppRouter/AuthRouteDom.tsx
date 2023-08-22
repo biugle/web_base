@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:16:18
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-08-18 15:19:33
+ * @LastEditTime: 2023-08-22 16:10:47
  * @Description: 路由守卫子组件
  * @FilePath: \web_base\src\router\AppRouter\AuthRouteDom.tsx
  */
@@ -12,6 +12,7 @@ import KeepAlive from 'react-activation';
 import { DEV_ROLES, IS_DEV } from '@_custom/config';
 import store, { actions, selectors } from '@store/all';
 import { connect } from 'react-redux';
+import { same } from 'js-xxx';
 
 class AuthRoute extends Component<any, any> {
   constructor(props: any) {
@@ -58,7 +59,7 @@ class AuthRoute extends Component<any, any> {
     }
 
     // 路由需要校验，且用户已登录。有权限进入，无权限 404 。
-    if ([].concat(roles)?.some((role: any) => authRoles?.includes(role))) {
+    if (same(roles, authRoles)) {
       return $AuthRouteDom;
     } else {
       return <Redirect to="/404" />;
