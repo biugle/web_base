@@ -3,20 +3,25 @@
     height: 100%;
     width: 100%;
     position: relative;
-    background-color: #f8f9fa;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(90deg, rgba(60, 10, 30, 0.04) 3%, transparent 0),
-      linear-gradient(1turn, rgba(60, 10, 30, 0.04) 3%, transparent 0);
+    background-color: #f8f9fa;
+    background-image:
+      linear-gradient(90deg, rgba(60, 10, 30, 0.05) 3%, transparent 0),
+      linear-gradient(1turn, rgba(60, 10, 30, 0.05) 3%, transparent 0);
     background-size: 20px 20px;
-    background-position: center;
+    background-position: calc(50% - 10px) calc(50% - 10px);
     background-repeat: repeat;
 
     &[data-theme='dark'] {
       background-color: #292a2e;
-      background-image: linear-gradient(90deg, rgba(195, 245, 215, 0.04) 3%, transparent 0),
-        linear-gradient(1turn, rgba(195, 245, 215, 0.04) 3%, transparent 0);
+      background-image:
+        linear-gradient(90deg, rgba(195, 245, 215, 0.05) 3%, transparent 0),
+        linear-gradient(1turn, rgba(195, 245, 215, 0.05) 3%, transparent 0);
+      background-size: 20px 20px;
+      background-position: calc(50% - 10px) calc(50% - 10px);
+      background-repeat: repeat;
     }
   }
 
@@ -422,6 +427,7 @@
     cursor: text;
 
     &:focus-within {
+
       &::before,
       &::after {
         content: '';
@@ -442,6 +448,7 @@
     }
 
     @keyframes clip-path {
+
       0%,
       100% {
         clip-path: inset(0 0 98% 0);
