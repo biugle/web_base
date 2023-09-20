@@ -27,8 +27,8 @@ const routes: RouteConfig[] = [
   {
     path: '/login',
     name: 'Login',
-    // component: lazy(() => import('@views/Login')),
-    component: lazy(() => import('@views/LoginRwd')),
+    // component: lazy(() => import('@pages/Login')),
+    component: lazy(() => import('@pages/LoginRwd')),
     exact: true,
     meta: {
       title: '登录',
