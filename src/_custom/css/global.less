@@ -27,5 +27,5 @@
 @rootFontSize: 16;
 
 .rem(@prop, @px) {
-  @{prop}: unit(@px / @rootFontSize, rem);
+  @{prop}: unit((@px / @rootFontSize * 1), rem);
 }
