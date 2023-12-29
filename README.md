@@ -11,6 +11,8 @@
   * (***client-main*** 基础客户端版本)
   * (***simple-cross-platform*** 跨平台简单模板 - **网页**&`Web`/**Client**&`Electron`/**App**&`Cordova`)
 
+## 微前端模组化（类浏览器模式）客户端模板 - [web_mods_base](https://github.com/biugle/web_mods_base)
+
 ## Technology Stack
 
 * React 17.x
