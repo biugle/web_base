@@ -1,0 +1,93 @@
+*[cursor='pointer'],
+a:hover,
+input[type='button'],
+button:hover,
+img:hover,
+code:hover,
+pre:hover,
+samp:hover,
+kbd:hover,
+menu:hover,
+nav:hover,
+footer:hover,
+ruby:hover,
+rp:hover,
+rt:hover,
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+[role='button']:hover,
+[role='link']:hover,
+[role='checkbox']:hover,
+[role='radio']:hover,
+[role='switch']:hover,
+[role='slider']:hover,
+[role='tab']:hover,
+[role='menuitem']:hover,
+[role='listitem']:hover,
+[role='treeitem']:hover,
+label:hover,
+textarea:hover,
+select:hover,
+option:hover,
+optgroup:hover,
+fieldset:hover,
+legend:hover,
+summary:hover,
+details:hover,
+article:hover,
+section:hover,
+aside:hover,
+header:hover,
+main:hover,
+figure:hover,
+figcaption:hover,
+time:hover,
+mark:hover,
+progress:hover,
+meter:hover,
+output:hover,
+iframe:hover {
+  cursor: pointer;
+}
+
+:checked + label {
+  font-weight: bolder;
+}
+
+input[type='number'] {
+  text-align: right;
+}
+input:in-range {
+  background-color: rgba(0, 255, 0, 0.25);
+}
+input:out-of-range {
+  background-color: rgba(255, 0, 0, 0.25);
+}
+
+img:not([src]),
+video:not([src]),
+audio:not([src]) {
+  display: none;
+}
+
+img,
+video,
+audio {
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+/* 防止 ios 滚动卡死 */
+body,
+html,
+* {
+  -webkit-overflow-scrolling: touch;
+}
