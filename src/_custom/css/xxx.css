@@ -188,25 +188,29 @@
   background-color: var(--grey);
 }
 
-.brackets:not(:first-child):before,
-.square-brackets:not(:first-child):before {
+.brackets:not(:first-child)::before,
+.square-brackets:not(:first-child)::before {
   margin-left: 0.25rem;
 }
 
-.brackets:not(:empty):before {
+.brackets:not(:empty)::before {
   content: '(';
 }
 
-.brackets:not(:empty):after {
+.brackets:not(:empty)::after {
   content: ')';
 }
 
-.square-brackets:not(:empty):before {
+.square-brackets:not(:empty)::before {
   content: '[';
 }
 
-.square-brackets:not(:empty):after {
+.square-brackets:not(:empty)::after {
   content: ']';
+}
+
+.empty-v:empty::after {
+  content: '-';
 }
 
 .scroll-bold {
@@ -440,5 +444,18 @@
   }
   50% {
     transform: rotate(666turn);
+  }
+}
+
+.autocomplete-off,
+input[autocomplete='off'] {
+  -webkit-autofill: none; /* Chrome */
+  -moz-box-shadow: 0 0 0px 1000px white inset !important; /* Firefox */
+}
+
+@media screen and (max-width: 768px) {
+  /* 在小屏幕上隐藏某些元素 */
+  .hide-on-mobile {
+    display: none;
   }
 }
