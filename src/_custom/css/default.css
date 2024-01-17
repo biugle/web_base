@@ -81,6 +81,22 @@ audio {
   text-decoration: none;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a[external] {
+  text-decoration: underline;
+}
+
+::selection {
+  background-color: #007bff;
+  color: whitesmoke;
+}
+
 [v-cloak] {
   display: none;
 }
