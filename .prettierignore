@@ -4,12 +4,16 @@
 **/node_modules/**
 **/dist/**
 **/dist-ssr/**
+**/docs-dist/**
 **/test/**
+**/tests/**
 **/demo/**
+**/logs/**
 **/*.svg
 **/*.toml
 **/*.xml
 **/**.min.*
 .husky/**
 build_exe/**
+build_app/**
 build/**
