@@ -2,13 +2,13 @@
  * @Author: Leo He
  * @Date: 2023-04-27 15:32:55
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-07-04 16:12:36
+ * @LastEditTime: 2024-05-13 16:11:53
  * @Description: 主文件入口
  * @FilePath: \web_base\src\main.tsx
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import { ConfigProvider, message, notification } from 'antd';
 import '@_custom/css/reset.css';
 import '@_custom/css/app.less';

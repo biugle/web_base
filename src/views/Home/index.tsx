@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-05-13 10:59:05
+ * @LastEditTime: 2024-05-13 16:46:12
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -16,10 +16,11 @@ import { useLogClick } from '@/_custom/hooks/useLogClick';
 import { LogProvider } from '@/components/LogProvider';
 import { useLogScroll } from '@/_custom/hooks/useLogScroll';
 import { useLogChange } from '@/_custom/hooks/useLogChange';
+import { setLang, t$ } from '@/locales/i18n';
 
 const Home = (props: any) => {
   const dispatch = useDispatch();
-  const { isLoading, msg } = useSelector(selectors.loading);
+  const { isLoading, msg, lang } = useSelector(selectors.loading);
   const { getCachingNodes } = useAliveController();
   const cachingNodes = getCachingNodes();
   // 使用自定义的钩子函数
@@ -43,6 +44,23 @@ const Home = (props: any) => {
     <div style={{ width: '100%', height: '100%' }}>
       {/* <LogProvider> */}
       <AntIcon icon="BugTwoTone" spin={true} style={{ margin: 'auto', display: 'block', width: '30px' }} />
+      <h5>{t$('你好世界')}</h5>
+      <h5>{t$('语言 ${lang}', { lang })}</h5>
+      <h5>{t$('不存在')}</h5>
+      <Button
+        onClick={() => {
+          setLang('en-US');
+        }}
+      >
+        设置英语
+      </Button>
+      <Button
+        onClick={() => {
+          setLang('zh-CN');
+        }}
+      >
+        设置中文
+      </Button>
       {/* <QRCode value={'http://a.biugle.cn'} /> */}
       {/* <Result
         status="403"
