@@ -7,8 +7,10 @@
 **/node_modules/**
 **/dist/**
 **/dist-ssr/**
+**/docs-dist/**
 **/demo/**
 **/test/**
+**/tests/**
 
 # Files
 *.local
@@ -25,4 +27,7 @@ pnpm-debug.log*
 # Custom
 .husky/**
 build_exe/**
+build_app/**
 build/**
+**/.umi/**
+**/.next/**
