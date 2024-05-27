@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-05-13 16:46:12
+ * @LastEditTime: 2024-05-27 10:41:49
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -17,8 +17,10 @@ import { LogProvider } from '@/components/LogProvider';
 import { useLogScroll } from '@/_custom/hooks/useLogScroll';
 import { useLogChange } from '@/_custom/hooks/useLogChange';
 import { setLang, t$ } from '@/locales/i18n';
+import { useTranslation } from '@/locales/useTranslation';
 
 const Home = (props: any) => {
+  // const { t$ } = useTranslation();
   const dispatch = useDispatch();
   const { isLoading, msg, lang } = useSelector(selectors.loading);
   const { getCachingNodes } = useAliveController();

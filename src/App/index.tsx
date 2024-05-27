@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-05-13 16:16:36
+ * @LastEditTime: 2024-05-27 09:43:23
  * @Description: 主组件
  * @FilePath: \web_base\src\App\index.tsx
  */
@@ -63,7 +63,7 @@ class App extends Component<any, { loading: boolean }> {
     const { userRoles, lang } = this.props;
 
     if (this.state.loading) {
-      return <AppRouter key={lang} routes={this.props.routes} />;
+      return <AppRouter routes={this.props.routes} />;
       // return <AppRouter routes={getRoutes(this.props.routes, userRoles)} />;
     }
 
