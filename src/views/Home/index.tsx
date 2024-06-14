@@ -1,12 +1,13 @@
+/* eslint-disable max-lines */
 /*
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-05-27 10:41:49
+ * @LastEditTime: 2024-06-14 17:24:15
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Button, QRCode, Result } from 'antd';
 import { useAliveController } from 'react-activation';
@@ -18,6 +19,8 @@ import { useLogScroll } from '@/_custom/hooks/useLogScroll';
 import { useLogChange } from '@/_custom/hooks/useLogChange';
 import { setLang, t$ } from '@/locales/i18n';
 import { useTranslation } from '@/locales/useTranslation';
+import useTimeout from '@/_custom/hooks/useTimeout';
+import AntTree, { getTreeCheckedNodes } from '@/components/AntTree';
 
 const Home = (props: any) => {
   // const { t$ } = useTranslation();
@@ -32,6 +35,70 @@ const Home = (props: any) => {
   useLogScroll(elementXRef);
   useLogScroll(elementYRef);
   useLogChange();
+  const [mockTreeData, setMockTreeData] = useState<any[]>([]);
+  const [mockSelectedKeys, setMockSelectedKeys] = useState<any[]>([]);
+  useTimeout(() => {
+    setMockTreeData([
+      {
+        title: '0-0',
+        key: '0-0',
+        children: [
+          {
+            title: '0-0-0',
+            key: '0-0-0',
+            children: [
+              { title: '0-0-0-0', key: '0-0-0-0' },
+              { title: '0-0-0-1', key: '0-0-0-1' },
+              { title: '0-0-0-2', key: '0-0-0-2' },
+            ],
+          },
+          {
+            title: '0-0-1',
+            key: '0-0-1',
+            children: [
+              { title: '0-0-1-0', key: '0-0-1-0' },
+              { title: '0-0-1-1', key: '0-0-1-1' },
+              { title: '0-0-1-2', key: '0-0-1-2' },
+            ],
+          },
+          {
+            title: '0-0-2',
+            key: '0-0-2',
+            children: [
+              { title: '0-0-2-0', key: '0-0-2-0' },
+              { title: '0-0-2-1', key: '0-0-2-1' },
+            ],
+          },
+        ],
+      },
+      {
+        title: '0-1',
+        key: '0-1',
+        children: [
+          { title: '0-1-0-0', key: '0-1-0-0' },
+          { title: '0-1-0-1', key: '0-1-0-1' },
+          { title: '0-1-0-2', key: '0-1-0-2' },
+        ],
+      },
+      {
+        title: '0-2',
+        key: '0-2',
+      },
+    ]);
+  }, 3000);
+
+  useEffect(() => {
+    const data = getTreeCheckedNodes(
+      mockTreeData,
+      ['0-0-2-0', '0-0-2-1', '0-0-0', '0-0-0-1', '0-1-0-2'].concat(['0-2', '404-not-found']),
+    );
+    console.log(data);
+    setMockSelectedKeys(data.checkedKeys);
+  }, [mockTreeData]);
+
+  useEffect(() => {
+    console.log({ mockSelectedKeys });
+  }, [mockSelectedKeys]);
 
   // redux demo
   // console.log({ isLoading, msg }, props.isLoading, props.msg, props.startLoading, props.stopLoading, cachingNodes);
@@ -44,6 +111,7 @@ const Home = (props: any) => {
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
+      <AntTree treeData={mockTreeData} selectedKeys={mockSelectedKeys} checkedKeys={mockSelectedKeys} />
       {/* <LogProvider> */}
       <AntIcon icon="BugTwoTone" spin={true} style={{ margin: 'auto', display: 'block', width: '30px' }} />
       <h5>{t$('你好世界')}</h5>

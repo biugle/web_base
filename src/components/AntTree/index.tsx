@@ -107,6 +107,8 @@ export const getTreeCheckedNodes = (treeData, checkedKeys = [], halfCheckedKeys 
   const newHalfCheckedKeys = Array.from(halfCheckedSet);
 
   return {
+    nodeMap,
+    parentMap,
     checkedKeys: newCheckedKeys.length ? newCheckedKeys : undefined,
     halfCheckedKeys: newHalfCheckedKeys.length ? newHalfCheckedKeys : undefined,
   };
