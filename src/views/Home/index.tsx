@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-14 17:24:15
+ * @LastEditTime: 2024-06-20 18:12:29
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -21,6 +21,7 @@ import { setLang, t$ } from '@/locales/i18n';
 import { useTranslation } from '@/locales/useTranslation';
 import useTimeout from '@/_custom/hooks/useTimeout';
 import AntTree, { getTreeCheckedNodes } from '@/components/AntTree';
+import LoadingPre from '@/components/LoadingPre';
 
 const Home = (props: any) => {
   // const { t$ } = useTranslation();
@@ -111,6 +112,7 @@ const Home = (props: any) => {
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
+      <LoadingPre />
       <AntTree treeData={mockTreeData} selectedKeys={mockSelectedKeys} checkedKeys={mockSelectedKeys} />
       {/* <LogProvider> */}
       <AntIcon icon="BugTwoTone" spin={true} style={{ margin: 'auto', display: 'block', width: '30px' }} />
