@@ -25,7 +25,7 @@
     "git": "git init",
     "husky": "npm run git && husky install && npm run add-husky-scripts && npm run replace-husky-scripts && npm run lint",
     "prepare:按需使用(hooks)": "npm run husky",
-    "add-husky-scripts": "husky add .husky/pre-commit npm_s_run_s_update:hooks && husky add .husky/pre-commit npm_s_run_s_lint && husky add .husky/pre-commit npm_s_run_s_time",
+    "add-husky-scripts": "husky add .husky/pre-commit npm_s_run_s_update:hooks && husky add .husky/pre-commit npm_s_run_s_lint && husky add .husky/pre-commit npm_s_run_s_time && husky add .husky/pre-commit git_s_add_s_.",
     "replace-husky-scripts": "xcmd replace-file-content .husky/pre-commit _s_ [space]",
     "dev": "vite",
     "build": "vite build",
@@ -33,6 +33,7 @@
     "eslint": "eslint ./ --fix --ext .ts,.tsx,.js,.jsx,.vue",
     "prettier": "prettier --write ./**/*.{ts,tsx,js,jsx,vue,html,css,scss,less}",
     "lint": "npm run prettier && npm run eslint",
+    "lint-staged": "npx lint-staged",
     "time": "xcmd update-time",
     "clean": "npm cache clean --force && xcmd clean",
     "update:hooks": "npm i js-xhttp js-xxx js-xcall && npm i js-xcmd -D"
@@ -42,9 +43,10 @@
     "@ant-design/pro-components": "^2.4.16",
     "@reduxjs/toolkit": "^1.9.5",
     "antd": "^5.4.6",
+    "dayjs": "^1.11.11",
     "js-xcall": "^1.3.1",
     "js-xhttp": "^1.6.1",
-    "js-xxx": "^2.2.17",
+    "js-xxx": "^2.2.19",
     "react": "^17.0.2",
     "react-activation": "^0.12.4",
     "react-dom": "^17.0.2",
@@ -69,14 +71,30 @@
     "eslint-plugin-spellcheck": "0.0.20",
     "eslint-plugin-zob": "^0.4.0",
     "husky": "^8.0.3",
-    "js-xcmd": "^1.5.5",
+    "js-xcmd": "^1.5.6",
     "less": "^4.1.3",
     "less-loader": "^11.1.0",
+    "lint-staged": "^13.3.0",
     "prettier": "^2.8.8",
     "terser": "^5.17.1",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
     "vite-plugin-eslint": "^1.8.1"
   },
-  "time": "2512111519052023"
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,vue,html,css,scss,less}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add ."
+    ]
+  },
+  "packageManager": "npm@8.0.0",
+  "engines": {
+    "react": "<18",
+    "node": ">=14",
+    "pnpm": ">=6.20.0",
+    "npm": ">=8.0.0",
+    "git": ">=2.30.0"
+  },
+  "time": "8011281720062024"
 }
