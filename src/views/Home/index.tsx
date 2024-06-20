@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-20 18:12:29
+ * @LastEditTime: 2024-06-20 18:24:39
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -112,10 +112,13 @@ const Home = (props: any) => {
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <LoadingPre />
+      <div style={{ position: 'relative', height: '60px' }}>
+        <LoadingPre />
+      </div>
+      <AntIcon icon="BugTwoTone" spin={true} style={{ margin: 'auto', display: 'block', width: '30px' }} />
+      <hr className="dotted-hr animation-hr" />
       <AntTree treeData={mockTreeData} selectedKeys={mockSelectedKeys} checkedKeys={mockSelectedKeys} />
       {/* <LogProvider> */}
-      <AntIcon icon="BugTwoTone" spin={true} style={{ margin: 'auto', display: 'block', width: '30px' }} />
       <h5>{t$('你好世界')}</h5>
       <h5>{t$('语言 ${lang}', { lang })}</h5>
       <h5>{t$('不存在')}</h5>

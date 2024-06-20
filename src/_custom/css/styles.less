@@ -1,7 +1,44 @@
 /* 特殊、页面、组件共用样式 */
+:root {
+  --hr-color: #555;
+}
 
 .text-wrap {
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre-wrap;
+}
+
+.dotted-hr {
+  position: relative;
+  height: 1em;
+  background: linear-gradient(to right, var(--hr-color, #555) 50%, transparent 50%);
+  background-size: 10px 2px;
+  background-position: center;
+  background-repeat: repeat-x;
+  border: none;
+  cursor: pointer;
+
+  margin-block: 0.5em;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 10px;
+    background-color: #000;
+    line-height: 1;
+    transition: left 1s ease-in-out, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  &:hover::before {
+    left: calc(100% - 35px);
+  }
 }
