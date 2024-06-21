@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-20 18:24:39
+ * @LastEditTime: 2024-06-21 09:25:10
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -116,7 +116,7 @@ const Home = (props: any) => {
         <LoadingPre />
       </div>
       <AntIcon icon="BugTwoTone" spin={true} style={{ margin: 'auto', display: 'block', width: '30px' }} />
-      <hr className="dotted-hr animation-hr" />
+      <hr className="dotted-hr awesome" />
       <AntTree treeData={mockTreeData} selectedKeys={mockSelectedKeys} checkedKeys={mockSelectedKeys} />
       {/* <LogProvider> */}
       <h5>{t$('你好世界')}</h5>
