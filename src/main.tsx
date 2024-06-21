@@ -2,7 +2,7 @@
  * @Author: Leo He
  * @Date: 2023-04-27 15:32:55
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-05-13 16:11:53
+ * @LastEditTime: 2024-06-21 15:33:45
  * @Description: 主文件入口
  * @FilePath: \web_base\src\main.tsx
  */
@@ -19,6 +19,15 @@ import dayjs from 'dayjs';
 import routes from './router';
 import 'dayjs/locale/zh-cn';
 import App from './App';
+import '@abraham/reflection';
+
+/*
+ * 兼容 sigi module.hot vite 环境报错
+ */
+// @ts-ignore
+window.module = {
+  hot: import.meta.hot,
+};
 
 dayjs.locale('zh-cn');
 

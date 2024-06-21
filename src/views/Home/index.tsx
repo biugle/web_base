@@ -13,6 +13,7 @@ import { Button, QRCode, Result } from 'antd';
 import { useAliveController } from 'react-activation';
 import { actions, selectors } from '@store/all';
 import AntIcon from '@components/AntIcon';
+import { useHistory } from 'react-router-dom';
 import { useLogClick } from '@/_custom/hooks/useLogClick';
 import { LogProvider } from '@/components/LogProvider';
 import { useLogScroll } from '@/_custom/hooks/useLogScroll';
@@ -110,8 +111,17 @@ const Home = (props: any) => {
     // createClickLogListener((key, data) => console.log({ key, data }));
   }, []);
 
+  const history = useHistory();
+
   return (
     <div style={{ width: '100%', height: '100%' }}>
+      <Button
+        onClick={() => {
+          history.push('/list_demo');
+        }}
+      >
+        Go ListDemo
+      </Button>
       <div style={{ position: 'relative', height: '60px' }}>
         <LoadingPre />
       </div>

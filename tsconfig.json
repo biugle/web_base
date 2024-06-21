@@ -17,6 +17,8 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],

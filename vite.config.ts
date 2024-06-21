@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 10:08:57
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-18 18:32:28
+ * @LastEditTime: 2024-06-21 14:20:48
  * @Description: vite 配置文件
  * @FilePath: \web_base\vite.config.ts
  */
@@ -25,7 +25,15 @@ export default defineConfig(({ command, mode }) => {
     eslint({
       fix: true,
     }),
-    reactPlugin(),
+    reactPlugin({
+      babel: {
+        plugins: [
+          ['@babel/plugin-proposal-decorators', { legacy: true }],
+          ['@babel/plugin-proposal-class-properties', { loose: true }],
+          '@babel/plugin-syntax-class-properties',
+        ],
+      },
+    }),
   ];
 
   return {
