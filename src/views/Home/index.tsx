@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-21 09:25:10
+ * @LastEditTime: 2024-06-24 17:10:22
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -121,6 +121,13 @@ const Home = (props: any) => {
         }}
       >
         Go ListDemo
+      </Button>
+      <Button
+        onClick={() => {
+          history.push('/form_demo');
+        }}
+      >
+        Go FormDemo
       </Button>
       <div style={{ position: 'relative', height: '60px' }}>
         <LoadingPre />
