@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ListDemoModule } from './index.module';
 import { ListDemoApi } from './index.api';
+import useInterval from '@/_custom/hooks/useInterval';
 
 type ListDemoProps = {
   title: string;
@@ -29,6 +30,11 @@ const ListDemo: React.FC<ListDemoProps> = (props) => {
     listDemoDispatcher.getPageListWatch();
     listDemoDispatcher.setQueryParams({ name: 'ListDemo' });
   }, []);
+
+  useInterval(() => {
+    // getPageListWatch 随 queryParams.name 重新请求
+    listDemoDispatcher.setQueryParams({ name: 'ListDemo' + Math.random() });
+  }, 3000);
 
   return (
     <div data-component="ListDemo">

@@ -18,3 +18,12 @@ interface ImportMeta {
 interface ImportMetaEnv {
   readonly VITE_REQUEST_BASE_URL: string;
 }
+
+/*
+ * vite 自定义全局变量
+ */
+// eslint-disable-next-line no-undef
+type ProcessEnv = typeof process.env;
+declare const _MODE_: string;
+declare const processEnv: ProcessEnv;
+declare const module: any;

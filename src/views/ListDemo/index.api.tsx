@@ -32,6 +32,7 @@ export class ListDemoApi {
       setTimeout(
         () =>
           resolve([
+            { id: Math.random(), name: 'Random' },
             { id: 1, text: 'A' },
             { id: 2, text: 'B' },
             { id: 3, text: 'C' },

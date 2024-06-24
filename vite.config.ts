@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 10:08:57
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-21 14:20:48
+ * @LastEditTime: 2024-06-24 14:15:19
  * @Description: vite 配置文件
  * @FilePath: \web_base\vite.config.ts
  */
@@ -37,6 +37,13 @@ export default defineConfig(({ command, mode }) => {
   ];
 
   return {
+    // https://cn.vitejs.dev/config/shared-options.html#define
+    define: {
+      // eslint-disable-next-line no-undef
+      processEnv: process.env,
+      module: {},
+      _MODE_: JSON.stringify(mode),
+    },
     root: getPath('./'),
     base: './',
     build: {
