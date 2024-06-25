@@ -1,6 +1,13 @@
+import { DrawerProps, ModalProps } from 'antd';
 import { getKey } from 'js-xxx';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import ReactDOM from 'react-dom';
+
+type FireDomProps = ModalProps &
+  DrawerProps & {
+    content?: ReactNode;
+    [key: string]: any;
+  };
 
 const destroyFns = new Set();
 
@@ -8,12 +15,16 @@ export const fire = (Component, options?: any) => {
   // @ts-ignore
   const isReact18 = !!ReactDOM?.createRoot;
 
-  const createComponent = (props0?: any) => {
+  const createComponent = (props0?: FireDomProps) => {
     const props = { ...(props0 ?? {}) };
+    props.key = props.key ?? getKey();
 
     const onClose = (...args) => {
+      // @ts-ignore
       props?.onClose?.(...args);
+      // @ts-ignore
       props?.onCancel?.(...args);
+      // @ts-ignore
       props?.close?.(...args);
 
       close(...args);
@@ -31,6 +42,7 @@ export const fire = (Component, options?: any) => {
 
     const wrapDOM = document.createElement('div');
     wrapDOM.className = options?.className ?? 'fireWrap';
+    wrapDOM.setAttribute('key', props.key);
     // @ts-ignore
     const root = isReact18 ? ReactDOM.createRoot(wrapDOM) : null;
 
@@ -38,7 +50,7 @@ export const fire = (Component, options?: any) => {
 
     const render = (props) => {
       // ConfigProvider 兼容
-      const node = <Component key={getKey()} {...props} getContainer={wrapDOM} />;
+      const node = <Component {...props} getContainer={wrapDOM} />;
 
       if (isReact18) {
         root.render(node);
@@ -65,12 +77,14 @@ export const fire = (Component, options?: any) => {
         open: false,
         show: false,
       });
+
       setTimeout(() => {
         destroy();
         if (props?.afterClose) {
+          // @ts-ignore
           props?.afterClose?.(...args);
         }
-      }, 1500);
+      }, 1111);
     };
 
     const update = (newProps) => {
@@ -80,7 +94,7 @@ export const fire = (Component, options?: any) => {
     render(currentProps);
     destroyFns.add(close);
 
-    return { update, close };
+    return { update, close, props };
   };
 
   return createComponent;

@@ -1,11 +1,16 @@
-import React from 'react';
-import { Modal } from 'antd';
+import React, { ReactNode } from 'react';
+import { Modal, ModalProps } from 'antd';
 import { fire } from './index';
 
-const FireConfirmDialog = (props: any) => {
+type CombinedProps = ModalProps & {
+  content?: ReactNode;
+  [key: string]: any;
+};
+
+const FireConfirmDialog = (props: CombinedProps) => {
   console.log({ props });
   return (
-    <Modal centered loading wrapClassName="fireConfirm" style={{ top: '-15%' }} {...props}>
+    <Modal centered wrapClassName="fireConfirm" style={{ top: '-15%' }} {...props}>
       {props?.content}
     </Modal>
   );

@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-25 11:44:45
+ * @LastEditTime: 2024-06-25 14:49:12
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -25,6 +25,7 @@ import AntTree, { getTreeCheckedNodes } from '@/components/AntTree';
 import LoadingPre from '@/components/LoadingPre';
 import { fire } from '@/components/Fire';
 import { fireConfirm } from '@/components/Fire/fireConfirm';
+import AutoText from '@/components/AutoText';
 
 const Home = (props: any) => {
   // const { t$ } = useTranslation();
@@ -184,11 +185,12 @@ const Home = (props: any) => {
       </Button>
       <Button
         onClick={() => {
-          const { close, update } = fireConfirm({
+          const { close, update, props } = fireConfirm({
             content: <b>test content</b>,
             // title: 'test title',
             onOk: () => {
               alert('onOk');
+              console.log({ close, update, props });
               close();
             },
           });
@@ -196,6 +198,16 @@ const Home = (props: any) => {
       >
         Fire Confirm
       </Button>
+      <div style={{ width: 200 }}>
+        <AutoText
+          text="这是一段省略文本 这是一段省略文本 这是一段省略文本 这是一段省略文本"
+          title="这是一段省略文本"
+          tips="提示"
+          prefix={<AntIcon icon="BugTwoTone" />}
+          suffix={<AntIcon icon="BugTwoTone" />}
+          color="blue"
+        />
+      </div>
       <div style={{ position: 'relative', height: '60px' }}>
         <LoadingPre />
       </div>
