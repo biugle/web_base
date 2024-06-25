@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom';
 
 type FireDomProps = ModalProps &
   DrawerProps & {
-    content?: ReactNode;
+    transferData?: any;
+    onConfirm?: any;
     [key: string]: any;
   };
 
@@ -30,6 +31,8 @@ export const fire = (Component, options?: any) => {
       close(...args);
     };
 
+    props.onOK = props?.onOK || props?.onConfirm || props?.onCancel || props?.onClose || onClose;
+
     const currentProps = {
       visible: true,
       open: true,
@@ -49,8 +52,9 @@ export const fire = (Component, options?: any) => {
     document.body.appendChild(wrapDOM);
 
     const render = (props) => {
+      console.log(props);
       // ConfigProvider 兼容
-      const node = <Component {...props} getContainer={wrapDOM} />;
+      const node = <Component {...props} getContainer={wrapDOM} onOk={props.onOK} />;
 
       if (isReact18) {
         root.render(node);
@@ -94,7 +98,7 @@ export const fire = (Component, options?: any) => {
     render(currentProps);
     destroyFns.add(close);
 
-    return { update, close, props };
+    return { update, close, props: currentProps };
   };
 
   return createComponent;

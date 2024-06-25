@@ -31,9 +31,9 @@ window.module = {
   hot: import.meta.hot,
 };
 
-if (IS_DEV) {
-  initDevtool();
-}
+// if (IS_DEV) {
+//   initDevtool();
+// }
 
 // eslint-disable-next-line no-undef
 console.log(_MODE_, module, processEnv);

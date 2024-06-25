@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-25 14:49:12
+ * @LastEditTime: 2024-06-25 16:21:24
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -168,6 +168,9 @@ const Home = (props: any) => {
           fire(CustomDialog)({
             afterClose: () => {
               console.log('Custom Dialog AfterClose');
+            },
+            onConfirm: () => {
+              console.log('Custom Dialog onConfirm');
             },
           });
         }}
