@@ -3,13 +3,13 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-24 17:10:22
+ * @LastEditTime: 2024-06-25 11:44:45
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
 import React, { useEffect, useRef, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { Button, QRCode, Result } from 'antd';
+import { Button, Drawer, Modal, QRCode, Result } from 'antd';
 import { useAliveController } from 'react-activation';
 import { actions, selectors } from '@store/all';
 import AntIcon from '@components/AntIcon';
@@ -23,6 +23,8 @@ import { useTranslation } from '@/locales/useTranslation';
 import useTimeout from '@/_custom/hooks/useTimeout';
 import AntTree, { getTreeCheckedNodes } from '@/components/AntTree';
 import LoadingPre from '@/components/LoadingPre';
+import { fire } from '@/components/Fire';
+import { fireConfirm } from '@/components/Fire/fireConfirm';
 
 const Home = (props: any) => {
   // const { t$ } = useTranslation();
@@ -113,6 +115,37 @@ const Home = (props: any) => {
 
   const history = useHistory();
 
+  const CustomDialog = (props: any) => {
+    const [data, setData] = useState('data');
+    return (
+      <Modal
+        {...props}
+        title={'test test test'}
+        afterClose={() => {
+          console.log('test test test afterClose');
+        }}
+      >
+        <p>Custom Dialog Content</p>
+        <input value={data} onChange={(e) => setData(e.target.value)} />
+      </Modal>
+    );
+  };
+  const CustomDrawer = (props: any) => {
+    const [data, setData] = useState('data');
+    return (
+      <Drawer
+        {...props}
+        onClose={(e) => {
+          console.log('Custom Drawer', e, { props });
+          props?.onClose();
+        }}
+      >
+        <p>Custom Dialog Content</p>
+        <input value={data} onChange={(e) => setData(e.target.value)} />
+      </Drawer>
+    );
+  };
+
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <Button
@@ -128,6 +161,40 @@ const Home = (props: any) => {
         }}
       >
         Go FormDemo
+      </Button>
+      <Button
+        onClick={() => {
+          fire(CustomDialog)({
+            afterClose: () => {
+              console.log('Custom Dialog AfterClose');
+            },
+          });
+        }}
+      >
+        Fire Dialog
+      </Button>
+      <Button
+        onClick={() => {
+          const fireConfig = fire(CustomDrawer)();
+          console.log({ fireConfig });
+          fireConfig.update({ title: '测试 title' });
+        }}
+      >
+        Fire Drawer
+      </Button>
+      <Button
+        onClick={() => {
+          const { close, update } = fireConfirm({
+            content: <b>test content</b>,
+            // title: 'test title',
+            onOk: () => {
+              alert('onOk');
+              close();
+            },
+          });
+        }}
+      >
+        Fire Confirm
       </Button>
       <div style={{ position: 'relative', height: '60px' }}>
         <LoadingPre />
