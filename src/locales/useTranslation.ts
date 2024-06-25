@@ -11,7 +11,7 @@ import { selectors } from '@store/all';
 import { i18nReact, setLang } from './i18n';
 
 export const useTranslation = () => {
-  const { lang } = useSelector(selectors.loading);
+  const { lang } = useSelector(selectors.settings);
 
   return { t$: (key, obj?: any, newLang?: string) => i18nReact.t$(key, obj, newLang ?? lang), setLang };
 };

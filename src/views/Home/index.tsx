@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-25 16:21:24
+ * @LastEditTime: 2024-06-25 18:39:34
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -30,7 +30,8 @@ import AutoText from '@/components/AutoText';
 const Home = (props: any) => {
   // const { t$ } = useTranslation();
   const dispatch = useDispatch();
-  const { isLoading, msg, lang } = useSelector(selectors.loading);
+  const { isLoading, msg } = useSelector(selectors.loading);
+  const { lang } = useSelector(selectors.settings);
   const { getCachingNodes } = useAliveController();
   const cachingNodes = getCachingNodes();
   // 使用自定义的钩子函数

@@ -7,13 +7,11 @@
  * @FilePath: \web_base\src\store\states\loading.ts
  */
 import { createSlice } from '@reduxjs/toolkit';
-import { i18nReact } from '@/locales/i18n';
 
 const loadingSlice = createSlice({
   name: 'loading',
   initialState: {
     isLoading: false,
-    lang: i18nReact.getLang(),
     msg: '',
   },
   reducers: {
@@ -26,10 +24,6 @@ const loadingSlice = createSlice({
       console.log('stopLoading');
       state.isLoading = false;
       state.msg = '';
-    },
-    setLang(state, { payload }) {
-      console.log('setLang', payload);
-      state.lang = payload;
     },
   },
 });
