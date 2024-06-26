@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:07:07
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-08-18 15:17:08
+ * @LastEditTime: 2024-06-26 10:38:04
  * @Description: 路由配置文件
  * @FilePath: \web_base\src\router\index.ts
  */
@@ -23,6 +23,13 @@ const routes: RouteConfig[] = [
     // roles: ['admin'],
     exact: true,
     component: lazy(async () => import('@pages/Home')),
+  },
+  {
+    name: 'ListDemo',
+    path: '/list_demo',
+    // roles: ['admin'],
+    exact: true,
+    component: lazy(async () => import('@pages/ListDemo')),
   },
   {
     path: '/login',
