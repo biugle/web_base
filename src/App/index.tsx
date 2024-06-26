@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-08-22 16:12:13
+ * @LastEditTime: 2024-06-25 18:42:52
  * @Description: 主组件
  * @FilePath: \web_base\src\App\index.tsx
  */
@@ -60,10 +60,10 @@ class App extends Component<any, { loading: boolean }> {
       return res;
     }
 
-    const { userRoles } = this.props;
+    const { userRoles, lang } = this.props;
 
     if (this.state.loading) {
-      return <AppRouter routes={this.props.routes} />;
+      return <AppRouter routes={this.props.routes} language={lang} />;
       // return <AppRouter routes={getRoutes(this.props.routes, userRoles)} />;
     }
 
@@ -73,5 +73,7 @@ class App extends Component<any, { loading: boolean }> {
 
 export default connect((state, ownProps: any) => ({
   // ...selectors.user(state),
+  ...selectors.loading(state),
+  ...selectors.settings(state),
   routes: ownProps.routes, // 使用从属性传递过来的路由配置
 }))(App);

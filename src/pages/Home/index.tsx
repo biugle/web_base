@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-05-23 18:09:04
+ * @LastEditTime: 2024-06-26 10:28:33
  * @Description: 首页
  * @FilePath: \web_base\src\pages\Home\index.tsx
  */
@@ -12,6 +12,7 @@ import { Button, QRCode, Result } from 'antd';
 import { useAliveController } from 'react-activation';
 import { actions, selectors } from '@store/all';
 import AntIcon from '@common/AntIcon';
+import { setLang, t$ } from '@/locales/i18n';
 
 const Home = (props: any) => {
   const dispatch = useDispatch();
@@ -46,14 +47,34 @@ const Home = (props: any) => {
         title="403"
         subTitle="Sorry, you are not authorized to access this page.(TEST)"
         extra={
-          <Button
-            type="primary"
-            onClick={() => {
-              props.history.push('/login');
-            }}
-          >
-            Back Login
-          </Button>
+          <>
+            <Button
+              type="primary"
+              onClick={() => {
+                props.history.push('/login');
+              }}
+            >
+              Back Login
+            </Button>
+            <Button
+              type="primary"
+              onClick={() => {
+                setLang('en-US');
+              }}
+            >
+              Set en-US
+            </Button>
+            <Button
+              type="primary"
+              onClick={() => {
+                setLang('zh-CN');
+              }}
+            >
+              Set zh-CN
+            </Button>
+            <br />
+            {t$('你好世界')}
+          </>
         }
       />
     </div>
