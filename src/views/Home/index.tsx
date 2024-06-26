@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-06-14 18:08:00
+ * @LastEditTime: 2024-06-26 11:03:37
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -12,6 +12,7 @@ import { Button, Result, Space } from 'antd';
 import { useAliveController } from 'react-activation';
 import { actions, selectors } from '@store/all';
 import AntIcon from '@components/AntIcon';
+import { setLang, t$ } from '@/locales/i18n';
 
 const Home = (props: any) => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const Home = (props: any) => {
         title="403"
         subTitle="Sorry, you are not authorized to access this page.(TEST)"
         extra={
-          <Space>
+          <>
             <Button
               type="primary"
               onClick={() => {
@@ -59,7 +60,7 @@ const Home = (props: any) => {
             </Button>
             <Button
               danger
-              type="ghost"
+              ghost
               onClick={() => {
                 // @ts-ignore
                 if (window.myVConsole) {
@@ -70,7 +71,25 @@ const Home = (props: any) => {
             >
               vConsole Destroy
             </Button>
-          </Space>
+            <Button
+              type="primary"
+              onClick={() => {
+                setLang('en-US');
+              }}
+            >
+              Set en-US
+            </Button>
+            <Button
+              type="primary"
+              onClick={() => {
+                setLang('zh-CN');
+              }}
+            >
+              Set zh-CN
+            </Button>
+            <br />
+            {t$('你好世界')}
+          </>
         }
       />
     </div>

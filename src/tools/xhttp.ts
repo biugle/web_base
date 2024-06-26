@@ -2,11 +2,11 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:26:25
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-04-27 15:26:25
+ * @LastEditTime: 2024-06-25 18:04:07
  * @Description: 全局请求工具
  * @FilePath: \web_base\src\tools\xhttp.ts
  */
-import XHttp from 'js-xhttp';
+import XHttp, { RequestConfig } from 'js-xhttp';
 import { message, notification } from 'antd';
 import store, { actions } from '@store/all';
 
@@ -70,3 +70,7 @@ const $http = XHttp.create(
 );
 
 export default $http;
+
+export function request(url: string, config: RequestConfig, isWhiteList?: boolean) {
+  return $http.axiosRequest(url, config, isWhiteList);
+}
