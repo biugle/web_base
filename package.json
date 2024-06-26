@@ -30,7 +30,7 @@
     "replace-husky-scripts": "xcmd replace-file-content .husky/pre-commit _s_ [space]",
     "electron-icon": "electron-icon-builder --input=./public/icon.png --output=./public/electron-icon-builder --flatten",
     "dev": "vite",
-    "build": "vite build",
+    "build": "node -v && vite build",
     "preview": "npm run build && vite preview --host",
     "before:exe": "tsc -p tsconfig.electron.json",
     "dev:exe": "chcp 65001 | vite -m electron",
@@ -117,12 +117,11 @@
       "git add ."
     ]
   },
-  "packageManager": "npm@8.0.0",
   "engines": {
+    "packageManager": "npm@8.0.0",
+    "nodeVersion": "node>=14",
     "react": "<18",
-    "node": ">=14",
     "pnpm": ">=6.20.0",
-    "npm": ">=8.0.0",
     "git": ">=2.30.0"
   },
   "time": "8011281720062024"
