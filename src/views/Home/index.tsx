@@ -13,6 +13,7 @@ import { useAliveController } from 'react-activation';
 import { actions, selectors } from '@store/all';
 import AntIcon from '@components/AntIcon';
 import { setLang, t$ } from '@/locales/i18n';
+import { fireConfirm } from '@/components/Fire/fireConfirm';
 
 const Home = (props: any) => {
   const dispatch = useDispatch();
@@ -70,6 +71,27 @@ const Home = (props: any) => {
               }}
             >
               vConsole Destroy
+            </Button>
+            <Button
+              type="primary"
+              onClick={() => {
+                fireConfirm({
+                  content: t$('你好世界'),
+                  afterClose: () => {
+                    console.log('fireConfirm afterClose');
+                  },
+                });
+              }}
+            >
+              Fire Confirm
+            </Button>
+            <Button
+              type="primary"
+              onClick={() => {
+                props.history.push('/list_demo');
+              }}
+            >
+              Go ListDemo
             </Button>
             <Button
               type="primary"
