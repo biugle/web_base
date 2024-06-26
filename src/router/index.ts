@@ -25,6 +25,13 @@ const routes: RouteConfig[] = [
     component: lazy(async () => import('@pages/Home')),
   },
   {
+    name: 'ListDemo',
+    path: '/list_demo',
+    // roles: ['admin'],
+    exact: true,
+    component: lazy(async () => import('@pages/ListDemo')),
+  },
+  {
     path: '/login',
     name: 'Login',
     // component: lazy(() => import('@pages/Login')),
