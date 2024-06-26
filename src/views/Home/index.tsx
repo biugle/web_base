@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-25 18:47:33
+ * @LastEditTime: 2024-06-26 10:02:59
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -13,6 +13,7 @@ import { useAliveController } from 'react-activation';
 import { actions, selectors } from '@store/all';
 import AntIcon from '@components/AntIcon';
 import { setLang, t$ } from '@/locales/i18n';
+import { fireConfirm } from '@/components/Fire/fireConfirm';
 
 const Home = (props: any) => {
   const dispatch = useDispatch();
@@ -45,6 +46,27 @@ const Home = (props: any) => {
               }}
             >
               Back Login
+            </Button>
+            <Button
+              type="primary"
+              onClick={() => {
+                fireConfirm({
+                  content: t$('你好世界'),
+                  afterClose: () => {
+                    console.log('fireConfirm afterClose');
+                  },
+                });
+              }}
+            >
+              Fire Confirm
+            </Button>
+            <Button
+              type="primary"
+              onClick={() => {
+                props.history.push('/list_demo');
+              }}
+            >
+              Go ListDemo
             </Button>
             <Button
               type="primary"
