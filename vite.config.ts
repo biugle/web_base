@@ -60,14 +60,18 @@ export default defineConfig(({ command, mode }) => {
     );
   }
 
+  const define = {
+    // eslint-disable-next-line no-undef
+    processEnv: process.env,
+    _MODE_: JSON.stringify(mode),
+  };
+  if (mode === 'development') {
+    define['module'] = {};
+  }
+
   return {
     // https://cn.vitejs.dev/config/shared-options.html#define
-    define: {
-      // eslint-disable-next-line no-undef
-      processEnv: process.env,
-      module: {},
-      _MODE_: JSON.stringify(mode),
-    },
+    define: define,
     root: getPath('./'),
     base: './',
     build: {
