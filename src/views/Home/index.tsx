@@ -197,6 +197,10 @@ const Home = (props: any) => {
               console.log({ close, update, props });
               close();
             },
+            afterClose: () => {
+              alert(1);
+              console.log({ close, update, props });
+            },
           });
         }}
       >

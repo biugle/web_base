@@ -53,6 +53,7 @@ export const fire = (Component, options?: any) => {
 
     const render = (props) => {
       console.log(props);
+      delete props.afterClose; // 防止 afterClose 执行两次
       // ConfigProvider 兼容
       const node = <Component {...props} getContainer={wrapDOM} onOk={props.onOK} />;
 
