@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 10:08:57
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-24 14:15:19
+ * @LastEditTime: 2024-06-26 14:15:04
  * @Description: vite 配置文件
  * @FilePath: \web_base\vite.config.ts
  */
