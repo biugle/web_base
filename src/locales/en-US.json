@@ -1,0 +1,4 @@
+{
+  "你好世界": "Hello World",
+  "语言 ${lang}": "Language ${lang}"
+}

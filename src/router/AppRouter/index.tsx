@@ -19,6 +19,7 @@ type AppRouterProps = {
   routes: any;
   basename?: string;
   defaultRoute?: string;
+  language?: string;
 };
 
 const AppRouter: React.FC<AppRouterProps> = (props: any) => {

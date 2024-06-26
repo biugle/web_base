@@ -26,7 +26,15 @@ export default defineConfig(({ command, mode }) => {
     eslint({
       fix: true,
     }),
-    reactPlugin(),
+    reactPlugin({
+      babel: {
+        plugins: [
+          ['@babel/plugin-proposal-decorators', { legacy: true }],
+          ['@babel/plugin-proposal-class-properties', { loose: true }],
+          '@babel/plugin-syntax-class-properties',
+        ],
+      },
+    }),
   ];
 
   if (mode === 'electron') {
@@ -53,6 +61,13 @@ export default defineConfig(({ command, mode }) => {
   }
 
   return {
+    // https://cn.vitejs.dev/config/shared-options.html#define
+    define: {
+      // eslint-disable-next-line no-undef
+      processEnv: process.env,
+      module: {},
+      _MODE_: JSON.stringify(mode),
+    },
     root: getPath('./'),
     base: './',
     build: {

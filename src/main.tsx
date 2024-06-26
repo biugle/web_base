@@ -2,12 +2,13 @@
  * @Author: Leo He
  * @Date: 2023-04-27 15:32:55
  * @LastEditors: DoubleAm
- * @LastEditTime: 2023-06-06 16:21:50
+ * @LastEditTime: 2024-06-26 10:28:11
  * @Description: 主文件入口
  * @FilePath: \web_base\src\main.tsx
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { initDevtool } from '@sigi/devtool';
 import { Provider } from 'react-redux';
 import { ConfigProvider, message, notification } from 'antd';
 import '@_custom/css/reset.css';
@@ -20,7 +21,23 @@ import routes from './router';
 import modules from './modules.config';
 import 'dayjs/locale/zh-cn';
 import App from './App';
+import '@abraham/reflection';
 import { IS_DEV } from './_custom/config';
+
+/*
+ * 兼容 sigi module.hot vite 环境报错
+ */
+// @ts-ignore
+window.module = {
+  hot: import.meta.hot,
+};
+
+// if (IS_DEV) {
+//   initDevtool();
+// }
+
+// eslint-disable-next-line no-undef
+console.log(_MODE_, module, processEnv);
 
 dayjs.locale('zh-cn');
 
