@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 10:08:57
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-26 14:15:04
+ * @LastEditTime: 2024-08-08 14:00:42
  * @Description: vite 配置文件
  * @FilePath: \web_base\vite.config.ts
  */
@@ -21,6 +21,22 @@ const getPath = (_path) => path.resolve(__dirname, _path);
 export default defineConfig(({ command, mode }) => {
   console.table({ command, mode });
 
+  function modifyOutputFileName() {
+    return {
+      name: 'modify-output-file-name',
+      generateBundle(_, bundle) {
+        for (const fileName in bundle) {
+          if (bundle[fileName].type === 'chunk' && bundle[fileName].facadeModuleId) {
+            const devPath = path.relative(process.cwd(), path.dirname(bundle[fileName].facadeModuleId));
+            const normalizedPath = devPath.split(/[\\/]/).join('_');
+            const newFileName = `${normalizedPath}-${fileName}`.replace(/[\\/]/g, '');
+            bundle[fileName].fileName = newFileName; // Update the fileName property
+          }
+        }
+      },
+    };
+  }
+
   const pluginsConfig = [
     eslint({
       fix: true,
@@ -34,6 +50,7 @@ export default defineConfig(({ command, mode }) => {
         ],
       },
     }),
+    // modifyOutputFileName(),
   ];
 
   const define = {
@@ -62,6 +79,22 @@ export default defineConfig(({ command, mode }) => {
         compress: {
           drop_console: true,
           drop_debugger: true,
+        },
+      },
+      // 手动分包
+      rollupOptions: {
+        output: {
+          manualChunks: (id, fnObj) => {
+            if (id?.includes('views')) {
+              const result = `${id}`.replace(/.*views\/([^/]+)\/.*/, '$1');
+              console.log({ id, result });
+              return result;
+            }
+            if (id?.includes('js-x')) {
+              console.log({ custom: id });
+              return 'custom';
+            }
+          },
         },
       },
     },
