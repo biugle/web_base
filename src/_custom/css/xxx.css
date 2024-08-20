@@ -507,6 +507,7 @@ ul.xxx-timeline {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    /* top: var(--timeline-circle-size); */
     left: calc(var(--timeline-width) / 2);
     width: var(--timeline-circle-size);
     height: var(--timeline-circle-size);
