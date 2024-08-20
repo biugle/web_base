@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 10:08:57
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-08-08 14:00:42
+ * @LastEditTime: 2024-08-20 14:25:38
  * @Description: vite 配置文件
  * @FilePath: \web_base\vite.config.ts
  */
@@ -94,6 +94,19 @@ export default defineConfig(({ command, mode }) => {
               console.log({ custom: id });
               return 'custom';
             }
+          },
+          entryFileNames: 'js/[name]-[hash].js',
+          chunkFileNames: 'js/chunk-[name]-[hash].js',
+          assetFileNames(assetInfo) {
+            console.log('assetInfo', assetInfo.name);
+            if (assetInfo?.name?.endsWith('.css')) {
+              return 'css/[name]-[hash].css';
+            }
+            const imgExt = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', '.webp'];
+            if (imgExt.some((x) => assetInfo?.name?.endsWith(x))) {
+              return 'images/[name]-[hash].[ext]';
+            }
+            return 'assets/[name]-[hash].[ext]';
           },
         },
       },
