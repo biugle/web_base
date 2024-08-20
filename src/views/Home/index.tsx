@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-06-25 18:39:34
+ * @LastEditTime: 2024-08-20 17:07:26
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -240,6 +240,16 @@ const Home = (props: any) => {
       >
         设置中文
       </Button>
+      <div className="colorful-border">This div has a colorful border with a gradient effect!</div>
+      <div data-lazy />
+      <ul className="xxx-timeline">
+        <li data-index={1}>Event 1</li>
+        <li data-index={2}>Event 2</li>
+        <li data-index={3}>Event 3</li>
+        <li data-index={4}>Event 4</li>
+        <li data-index={5}>Event 5</li>
+        <li data-index={6}>Event 6</li>
+      </ul>
       {/* <QRCode value={'http://a.biugle.cn'} /> */}
       {/* <Result
         status="403"

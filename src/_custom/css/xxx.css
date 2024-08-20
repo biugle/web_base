@@ -531,3 +531,35 @@ ul.xxx-timeline {
     background-color: var(--timeline-color);
   }
 }
+
+div[data-lazy] {
+  position: relative;
+  width: 500px;
+  height: 500px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &::before {
+    background-color: rgba(204, 204, 204, 0.1);
+    background-image: url('./loading.svg');
+    background-size: 60px;
+
+    [data-theme='dark'] & {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &::after {
+    background-image: url('./loaded.png');
+  }
+}
