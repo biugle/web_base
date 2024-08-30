@@ -39,6 +39,13 @@ const routes: RouteConfig[] = [
     component: lazy(async () => import('@views/FormDemo')),
   },
   {
+    name: 'Form',
+    path: '/dynamic_array_form',
+    // roles: ['admin'],
+    exact: true,
+    component: lazy(async () => import('@views/DynamicArrayForm')),
+  },
+  {
     path: '/login',
     name: 'Login',
     // component: lazy(() => import('@views/Login')),

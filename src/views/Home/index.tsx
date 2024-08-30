@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 15:38:29
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-08-20 17:07:26
+ * @LastEditTime: 2024-08-30 15:23:18
  * @Description: 首页
  * @FilePath: \web_base\src\views\Home\index.tsx
  */
@@ -163,6 +163,13 @@ const Home = (props: any) => {
         }}
       >
         Go FormDemo
+      </Button>
+      <Button
+        onClick={() => {
+          history.push('/dynamic_array_form');
+        }}
+      >
+        Go DynamicArrayForm
       </Button>
       <Button
         onClick={() => {

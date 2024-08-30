@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2023-04-27 10:08:57
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-08-20 14:25:38
+ * @LastEditTime: 2024-08-30 15:22:34
  * @Description: vite 配置文件
  * @FilePath: \web_base\vite.config.ts
  */
@@ -27,6 +27,7 @@ export default defineConfig(({ command, mode }) => {
       generateBundle(_, bundle) {
         for (const fileName in bundle) {
           if (bundle[fileName].type === 'chunk' && bundle[fileName].facadeModuleId) {
+            // eslint-disable-next-line no-undef
             const devPath = path.relative(process.cwd(), path.dirname(bundle[fileName].facadeModuleId));
             const normalizedPath = devPath.split(/[\\/]/).join('_');
             const newFileName = `${normalizedPath}-${fileName}`.replace(/[\\/]/g, '');
