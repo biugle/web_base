@@ -1,5 +1,7 @@
 # web_base
 
+# 建议使用 [biao](https://github.com/biugle/biao) 现代化企业级前端应用基座
+
 > 前端模板-基于 React + TypeScript + Vite + Antd + Electron + ServiceWorker 实现的模块化前端模板(支持基础版本、多页面模块版本、客户端版本等)
 
 * **main** `基础版本` 分支
